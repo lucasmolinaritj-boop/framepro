@@ -14,12 +14,12 @@ function install(){
  const oldBtn=document.getElementById('fpSensorV4'),oldCenter=document.getElementById('fpCenterV4');if(!oldBtn||!oldCenter||oldBtn.dataset.v17)return false;
  const btn=oldBtn.cloneNode(true);oldBtn.replaceWith(btn);btn.dataset.v17='1';
  const center=oldCenter.cloneNode(true);oldCenter.replaceWith(center);center.dataset.v17='1';center.textContent='⟳ CENTRALIZAR VISÃO';center.style.setProperty('display','grid','important');
- let enabled=false,last=null,current=null,samples=0,paused=false,rollBase=null,rollStep=0;
+ let enabled=false,last=null,current=null,samples=0,paused=false,rollBase=null,rollStep=0,centering=false;
  function map(e){const angle=(((screen.orientation&&screen.orientation.angle)||window.orientation||0)%360+360)%360;const a=e.alpha??0,b=e.beta??0,g=e.gamma??0;if(angle===90)return{yaw:a,pitch:g,roll:b};if(angle===270)return{yaw:a,pitch:-g,roll:-b};if(angle===180)return{yaw:a,pitch:-b,roll:-g};return{yaw:a,pitch:b,roll:g};}
  function recalibrate(){last=current?{...current}:null;rollBase=current?current.roll:null;rollStep=0;}
  function onOrientation(e){
   if(!enabled)return;current=map(e);samples++;
-  if(paused||document.hidden||window.__fpJoystickLookActive){last={...current};return;}
+  if(paused||centering||document.hidden||window.__fpJoystickLookActive){last={...current};return;}
   if(!last){recalibrate();return;}
   let dyaw=norm(current.yaw-last.yaw),dpitch=current.pitch-last.pitch;last={...current};
   if(Math.abs(dyaw)>8||Math.abs(dpitch)>8)return;
@@ -33,10 +33,13 @@ function install(){
  }
  async function permission(){if(typeof DeviceOrientationEvent!=='undefined'&&typeof DeviceOrientationEvent.requestPermission==='function'){const p=await DeviceOrientationEvent.requestPermission();if(p!=='granted')throw new Error('negado');}}
  function centerVertical(){
-  if(typeof window.__fpResetMobileControls==='function')window.__fpResetMobileControls();
-  const amount=Number(cameraOffset.y)||0;if(Math.abs(amount)>.01){const frames=10;let done=0;function step(){const remaining=amount-done,delta=-remaining/(frames-Math.round(Math.abs(done/amount)*frames)||1);rawLook(0,delta);done-=delta;if(Math.abs(amount-done)>.03)requestAnimationFrame(step);else{rawLook(0,-(amount-done));cameraOffset.y=0;recalibrate();toast('Eixo vertical centralizado');}}requestAnimationFrame(step);}else{cameraOffset.y=0;recalibrate();toast('Eixo vertical já centralizado');}
+  if(centering)return;centering=true;if(typeof window.__fpResetMobileControls==='function')window.__fpResetMobileControls();
+  const amount=Number(cameraOffset.y)||0,steps=10,delta=-amount/steps;let i=0;
+  function finish(){cameraOffset.y=0;recalibrate();centering=false;toast(Math.abs(amount)>.01?'Eixo vertical centralizado':'Eixo vertical já centralizado');}
+  if(Math.abs(amount)<=.01){finish();return;}
+  function tick(){rawLook(0,delta);i++;if(i<steps)requestAnimationFrame(tick);else finish();}requestAnimationFrame(tick);
  }
- btn.addEventListener('click',async e=>{e.preventDefault();e.stopPropagation();try{if(typeof DeviceOrientationEvent==='undefined')throw new Error('sem suporte');await permission();enabled=!enabled;samples=0;last=current=null;rollBase=null;rollStep=0;if(enabled){window.addEventListener('deviceorientation',onOrientation,true);html.classList.add('fp-sensor-on');btn.textContent='📱 SENSORES ON';setTimeout(()=>{if(enabled&&samples===0)btn.textContent='⚠️ SEM DADOS';},2200);}else{window.removeEventListener('deviceorientation',onOrientation,true);html.classList.remove('fp-sensor-on');btn.textContent='📱 ATIVAR SENSORES';}}catch(_){btn.textContent='⚠️ SENSOR INDISPONÍVEL';}},{passive:false});
+ btn.addEventListener('click',async e=>{e.preventDefault();e.stopPropagation();try{if(typeof DeviceOrientationEvent==='undefined')throw new Error('sem suporte');await permission();enabled=!enabled;samples=0;last=current=null;rollBase=null;rollStep=0;if(enabled){window.removeEventListener('deviceorientation',onOrientation,true);window.addEventListener('deviceorientation',onOrientation,true);html.classList.add('fp-sensor-on');btn.textContent='📱 SENSORES ON';setTimeout(()=>{if(enabled&&samples===0)btn.textContent='⚠️ SEM DADOS';},2200);}else{window.removeEventListener('deviceorientation',onOrientation,true);html.classList.remove('fp-sensor-on');btn.textContent='📱 ATIVAR SENSORES';}}catch(_){btn.textContent='⚠️ SENSOR INDISPONÍVEL';}},{passive:false});
  center.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();centerVertical();},{passive:false});
  function suspend(){paused=true;last=null;if(typeof window.__fpResetMobileControls==='function')window.__fpResetMobileControls();}
  function resume(){paused=false;last=current=null;rollBase=null;rollStep=0;setTimeout(()=>{last=current?{...current}:null;},220);}
