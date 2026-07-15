@@ -45,22 +45,23 @@
     return Object.fromEntries(results.filter(Boolean));
   }
 
-  function loadEngine() {
+  function loadScript(src, errorMessage) {
     return new Promise((resolve, reject) => {
       const script = document.createElement("script");
-      script.src = "core/engine.js?v=53";
+      script.src = src;
       script.async = false;
-      script.onload = () => {
-        const mobileFix = document.createElement("script");
-        mobileFix.src = "core/mobile-web-fix.js?v=4";
-        mobileFix.async = false;
-        mobileFix.onload = resolve;
-        mobileFix.onerror = () => { console.warn("Falha ao carregar correção mobile"); resolve(); };
-        document.body.appendChild(mobileFix);
-      };
-      script.onerror = () => reject(new Error("Não foi possível carregar core/engine.js"));
+      script.onload = resolve;
+      script.onerror = () => reject(new Error(errorMessage || ("Não foi possível carregar " + src)));
       document.body.appendChild(script);
     });
+  }
+
+  async function loadEngine() {
+    await loadScript("core/engine.js?v=53", "Não foi possível carregar core/engine.js");
+    try { await loadScript("core/mobile-web-fix.js?v=4", "Falha ao carregar correção mobile"); }
+    catch (error) { console.warn(error.message); }
+    try { await loadScript("core/mobile-controls-v5.js?v=1", "Falha ao carregar controles mobile V5"); }
+    catch (error) { console.warn(error.message); }
   }
 
   async function loadTextConfig() {
