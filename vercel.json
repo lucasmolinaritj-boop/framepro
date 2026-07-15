@@ -1,0 +1,9 @@
+{
+  "cleanUrls": true,
+  "headers": [
+    {
+      "source": "/(.*\\.(js|json|txt|html))",
+      "headers": [{"key":"Cache-Control","value":"no-cache, no-store, must-revalidate"}]
+    }
+  ]
+}

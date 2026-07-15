@@ -1,0 +1,2476 @@
+{
+  "id": "fachada_casa_alphaville_curitiba",
+  "label": "Fachada de Casa Moderna — Curitiba",
+  "subtitle": "4 fotos de fachada • frontal + diagonais + margem da casa",
+  "icon": "🏠",
+  "order": [
+    "Fachada da Casa"
+  ],
+  "roomsRaw": {
+    "Fachada da Casa": {
+      "cx": 0,
+      "cz": -10,
+      "w": 95,
+      "d": 27
+    }
+  },
+  "detection": {
+    "rules": [
+      {
+        "room": "Fachada da Casa"
+      }
+    ]
+  },
+  "roomRules": {
+    "Fachada da Casa": {
+      "type": "facade",
+      "disableVerticalAlignment": true,
+      "requireTopVisible": true,
+      "buildingBounds": {
+        "minX": -10,
+        "maxX": 10,
+        "minY": 0,
+        "maxY": 7.4,
+        "minZ": 1.2,
+        "maxZ": 10
+      },
+      "photoSequence": [
+        "frontNear",
+        "frontFar",
+        "diagLeft",
+        "diagRight"
+      ],
+      "facadeShots": [
+        {
+          "id": "frontNear",
+          "label": "Frontal próxima",
+          "position": {
+            "x": 0,
+            "z": -6.7
+          },
+          "radius": 0.6,
+          "mode": "central",
+          "aim": {
+            "type": "point",
+            "x": 0.0,
+            "y": 3.5,
+            "z": 1.5,
+            "horizontalTolerance": 4,
+            "verticalTolerance": 4,
+            "minPitchDeg": 0
+          },
+          "allowExtraPhotos": true
+        },
+        {
+          "id": "frontFar",
+          "label": "Frontal oposta",
+          "position": {
+            "x": 0,
+            "z": -15.7
+          },
+          "radius": 0.6,
+          "mode": "central",
+          "aim": {
+            "type": "point",
+            "x": 0.0,
+            "y": 3.8,
+            "z": 1.5,
+            "horizontalTolerance": 4,
+            "verticalTolerance": 4,
+            "minPitchDeg": 0
+          },
+          "allowExtraPhotos": true,
+          "praiseZoomMinMm": 15,
+          "zoomPraise": "Excelente! Da calçada oposta, o zoom comprimiu a perspectiva e valorizou muito a fachada."
+        },
+        {
+          "id": "diagLeft",
+          "label": "Diagonal esquerda",
+          "position": {
+            "x": -6.2,
+            "z": -15.7
+          },
+          "radius": 0.6,
+          "mode": "diagonal",
+          "aim": {
+            "type": "point",
+            "x": 9.0,
+            "y": 3.7,
+            "z": 1.5,
+            "horizontalTolerance": 7,
+            "minPitchDeg": 0
+          },
+          "allowExtraPhotos": true
+        },
+        {
+          "id": "diagRight",
+          "label": "Diagonal direita",
+          "position": {
+            "x": 6.2,
+            "z": -15.7
+          },
+          "radius": 0.6,
+          "mode": "diagonal",
+          "aim": {
+            "type": "point",
+            "x": -9.0,
+            "y": 3.7,
+            "z": 1.5,
+            "horizontalTolerance": 7,
+            "minPitchDeg": 0
+          },
+          "allowExtraPhotos": true
+        }
+      ],
+      "roadHorizonY": 1.0
+    }
+  },
+  "bounds": {
+    "minX": -48,
+    "maxX": 48,
+    "minZ": -20.5,
+    "maxZ": 12
+  },
+  "spawn": {
+    "x": 0,
+    "y": 1.4,
+    "z": -16.7
+  },
+  "spawnAngle": 0,
+  "mini": {
+    "outer": [
+      -50,
+      -21,
+      100,
+      34
+    ],
+    "rooms": {
+      "Fachada da Casa": {
+        "x": -48,
+        "z": -20.5,
+        "w": 96,
+        "h": 32.5,
+        "label": "Rua + Casa"
+      }
+    }
+  },
+  "traffic": {
+    "enabled": true,
+    "lanes": [
+      {
+        "axis": "x",
+        "x": 0,
+        "z": -10.2,
+        "length": 94,
+        "direction": 1,
+        "count": 2,
+        "speedMin": 5,
+        "speedMax": 8,
+        "chargeSpeed": 14
+      },
+      {
+        "axis": "x",
+        "x": 0,
+        "z": -13.6,
+        "length": 94,
+        "direction": -1,
+        "count": 2,
+        "speedMin": 5,
+        "speedMax": 8,
+        "chargeSpeed": 14
+      }
+    ]
+  },
+  "scene": [
+    {
+      "type": "box",
+      "args": [
+        0,
+        -0.12,
+        0,
+        100,
+        0.2,
+        44,
+        {
+          "materialConfig": {
+            "color": 4811583,
+            "roughness": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        0,
+        -0.02,
+        -11.9,
+        100,
+        0.12,
+        8.2,
+        {
+          "materialConfig": {
+            "color": 3356218,
+            "roughness": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        0,
+        0.05,
+        -6.65,
+        100,
+        0.18,
+        2.3,
+        {
+          "materialConfig": {
+            "color": 10987426,
+            "roughness": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        0,
+        0.05,
+        -17.15,
+        100,
+        0.18,
+        2.3,
+        {
+          "materialConfig": {
+            "color": 10987426,
+            "roughness": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        0,
+        0.18,
+        -7.85,
+        100,
+        0.25,
+        0.22,
+        {
+          "materialConfig": {
+            "color": 14210511,
+            "roughness": 0.9
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        0,
+        0.18,
+        -15.95,
+        100,
+        0.25,
+        0.22,
+        {
+          "materialConfig": {
+            "color": 14210511,
+            "roughness": 0.9
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        0,
+        0.01,
+        -11.9,
+        100,
+        0.03,
+        0.12,
+        {
+          "materialConfig": {
+            "color": 14210511,
+            "roughness": 0.8
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        0,
+        0.02,
+        5.8,
+        20,
+        0.08,
+        10.2,
+        {
+          "materialConfig": {
+            "color": 3426636,
+            "roughness": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        4.7,
+        0.07,
+        2.2,
+        7.2,
+        0.12,
+        5.6,
+        {
+          "materialConfig": {
+            "color": 9145227,
+            "roughness": 0.85
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -5.8,
+        0.08,
+        2.0,
+        4.0,
+        0.14,
+        4.8,
+        {
+          "materialConfig": {
+            "color": 12105912,
+            "roughness": 0.85
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -1.2,
+        1.55,
+        6.2,
+        17.4,
+        3.1,
+        7.4,
+        {
+          "materialConfig": {
+            "color": 15066597,
+            "roughness": 0.82
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -2.8,
+        4.65,
+        6.5,
+        12.8,
+        3.1,
+        6.8,
+        {
+          "materialConfig": {
+            "color": 13223884,
+            "roughness": 0.88
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        5.7,
+        4.35,
+        6.4,
+        5.2,
+        3.7,
+        6.6,
+        {
+          "materialConfig": {
+            "color": 2631720,
+            "roughness": 0.72
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -1.3,
+        3.18,
+        6.0,
+        17.8,
+        0.28,
+        7.8,
+        {
+          "materialConfig": {
+            "color": 2631720,
+            "roughness": 0.75
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -2.8,
+        6.3,
+        6.4,
+        13.2,
+        0.3,
+        7.1,
+        {
+          "materialConfig": {
+            "color": 2631720,
+            "roughness": 0.75
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        5.7,
+        6.25,
+        6.3,
+        5.5,
+        0.32,
+        7.0,
+        {
+          "materialConfig": {
+            "color": 2631720,
+            "roughness": 0.75
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        4.5,
+        1.35,
+        2.43,
+        6.6,
+        2.7,
+        0.16,
+        {
+          "materialConfig": {
+            "color": 2631720,
+            "roughness": 0.58
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        4.5,
+        1.35,
+        2.32,
+        5.8,
+        2.25,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7640040,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.55
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -2.0,
+        1.55,
+        2.42,
+        2.0,
+        3.1,
+        0.18,
+        {
+          "materialConfig": {
+            "color": 8548160,
+            "roughness": 0.55
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -2.0,
+        1.55,
+        2.28,
+        1.45,
+        2.75,
+        0.1,
+        {
+          "materialConfig": {
+            "color": 8548160,
+            "roughness": 0.42
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -0.65,
+        1.55,
+        2.35,
+        0.3,
+        3.1,
+        0.22,
+        {
+          "materialConfig": {
+            "color": 2631720,
+            "roughness": 0.6
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -6.0,
+        1.55,
+        2.38,
+        4.2,
+        2.35,
+        0.12,
+        {
+          "materialConfig": {
+            "color": 7640040,
+            "roughness": 0.16,
+            "transparent": true,
+            "opacity": 0.5
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -6.0,
+        0.33,
+        2.34,
+        4.6,
+        0.22,
+        0.35,
+        {
+          "materialConfig": {
+            "color": 2631720,
+            "roughness": 0.62
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -5.8,
+        4.65,
+        2.99,
+        4.0,
+        1.75,
+        0.13,
+        {
+          "materialConfig": {
+            "color": 7640040,
+            "roughness": 0.16,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -1.5,
+        4.65,
+        2.99,
+        3.4,
+        1.75,
+        0.13,
+        {
+          "materialConfig": {
+            "color": 7640040,
+            "roughness": 0.16,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        5.7,
+        4.65,
+        2.99,
+        3.6,
+        1.95,
+        0.13,
+        {
+          "materialConfig": {
+            "color": 7640040,
+            "roughness": 0.16,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -3.9,
+        3.56,
+        2.7,
+        9.6,
+        0.22,
+        1.15,
+        {
+          "materialConfig": {
+            "color": 10526880,
+            "roughness": 0.82
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -8.55,
+        4.65,
+        2.75,
+        0.24,
+        2.25,
+        1.2,
+        {
+          "materialConfig": {
+            "color": 10526880,
+            "roughness": 0.82
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        0.75,
+        4.65,
+        2.75,
+        0.24,
+        2.25,
+        1.2,
+        {
+          "materialConfig": {
+            "color": 10526880,
+            "roughness": 0.82
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        1.15,
+        3.55,
+        2.48,
+        2.0,
+        6.8,
+        0.2,
+        {
+          "materialConfig": {
+            "color": 8548160,
+            "roughness": 0.62
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        0.45,
+        3.55,
+        2.32,
+        0.16,
+        6.5,
+        0.16,
+        {
+          "materialConfig": {
+            "color": 8548160,
+            "roughness": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        0.8,
+        3.55,
+        2.32,
+        0.16,
+        6.5,
+        0.16,
+        {
+          "materialConfig": {
+            "color": 8548160,
+            "roughness": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        1.15,
+        3.55,
+        2.32,
+        0.16,
+        6.5,
+        0.16,
+        {
+          "materialConfig": {
+            "color": 8548160,
+            "roughness": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        1.5,
+        3.55,
+        2.32,
+        0.16,
+        6.5,
+        0.16,
+        {
+          "materialConfig": {
+            "color": 8548160,
+            "roughness": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        1.85,
+        3.55,
+        2.32,
+        0.16,
+        6.5,
+        0.16,
+        {
+          "materialConfig": {
+            "color": 8548160,
+            "roughness": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -9.55,
+        1.05,
+        1.45,
+        0.35,
+        2.1,
+        1.2,
+        {
+          "materialConfig": {
+            "color": 2631720,
+            "roughness": 0.78
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        9.55,
+        1.05,
+        1.45,
+        0.35,
+        2.1,
+        1.2,
+        {
+          "materialConfig": {
+            "color": 2631720,
+            "roughness": 0.78
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -7.7,
+        0.75,
+        1.5,
+        3.4,
+        1.5,
+        0.22,
+        {
+          "materialConfig": {
+            "color": 10526880,
+            "roughness": 0.9
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        7.8,
+        0.75,
+        1.5,
+        3.0,
+        1.5,
+        0.22,
+        {
+          "materialConfig": {
+            "color": 10526880,
+            "roughness": 0.9
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        4.7,
+        0.72,
+        1.47,
+        6.6,
+        1.35,
+        0.1,
+        {
+          "materialConfig": {
+            "color": 2631720,
+            "roughness": 0.55
+          }
+        }
+      ]
+    },
+    {
+      "type": "cylinder",
+      "args": [
+        -8.0,
+        0.75,
+        2.5,
+        0.55,
+        1.5,
+        {
+          "materialConfig": {
+            "color": 3109428,
+            "roughness": 0.95
+          }
+        },
+        18
+      ]
+    },
+    {
+      "type": "cylinder",
+      "args": [
+        -7.1,
+        0.6,
+        2.7,
+        0.45,
+        1.2,
+        {
+          "materialConfig": {
+            "color": 3109428,
+            "roughness": 0.95
+          }
+        },
+        18
+      ]
+    },
+    {
+      "type": "cylinder",
+      "args": [
+        -3.8,
+        0.45,
+        1.9,
+        0.35,
+        0.9,
+        {
+          "materialConfig": {
+            "color": 3109428,
+            "roughness": 0.95
+          }
+        },
+        18
+      ]
+    },
+    {
+      "type": "cylinder",
+      "args": [
+        8.6,
+        0.65,
+        2.2,
+        0.45,
+        1.3,
+        {
+          "materialConfig": {
+            "color": 3109428,
+            "roughness": 0.95
+          }
+        },
+        18
+      ]
+    },
+    {
+      "type": "cylinder",
+      "args": [
+        -8.2,
+        1.0,
+        4.4,
+        0.35,
+        2.0,
+        {
+          "materialConfig": {
+            "color": 6508835,
+            "roughness": 1
+          }
+        },
+        18
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -8.2,
+        3.2,
+        4.4,
+        2.4,
+        2.6,
+        2.4,
+        {
+          "materialConfig": {
+            "color": 3109428,
+            "roughness": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "cylinder",
+      "args": [
+        8.6,
+        1.15,
+        4.8,
+        0.38,
+        2.3,
+        {
+          "materialConfig": {
+            "color": 6508835,
+            "roughness": 1
+          }
+        },
+        18
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        8.6,
+        3.6,
+        4.8,
+        2.7,
+        3.0,
+        2.7,
+        {
+          "materialConfig": {
+            "color": 3109428,
+            "roughness": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -20,
+        1.55,
+        6.6,
+        15.5,
+        3.1,
+        7.0,
+        {
+          "materialConfig": {
+            "color": 14211288,
+            "roughness": 0.88
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -22,
+        4.45,
+        6.8,
+        10.8,
+        2.7,
+        6.3,
+        {
+          "materialConfig": {
+            "color": 11579568,
+            "roughness": 0.86
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -14.6,
+        4.2,
+        6.7,
+        4.0,
+        3.2,
+        6.1,
+        {
+          "materialConfig": {
+            "color": 3355443,
+            "roughness": 0.72
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -20,
+        6.0,
+        6.7,
+        15.8,
+        0.28,
+        7.2,
+        {
+          "materialConfig": {
+            "color": 3355443,
+            "roughness": 0.74
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -24.5,
+        1.4,
+        3.1,
+        4.8,
+        2.3,
+        0.12,
+        {
+          "materialConfig": {
+            "color": 7640040,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.45
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -18.8,
+        1.35,
+        3.05,
+        5.0,
+        2.4,
+        0.14,
+        {
+          "materialConfig": {
+            "color": 3355443,
+            "roughness": 0.55
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -18.8,
+        1.35,
+        2.94,
+        4.4,
+        2.0,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7640040,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.4
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -23.0,
+        4.45,
+        3.35,
+        4.2,
+        1.6,
+        0.12,
+        {
+          "materialConfig": {
+            "color": 7640040,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.45
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -17.8,
+        4.45,
+        3.35,
+        3.6,
+        1.6,
+        0.12,
+        {
+          "materialConfig": {
+            "color": 7640040,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.45
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -12.0,
+        0.8,
+        1.8,
+        0.3,
+        1.6,
+        1.0,
+        {
+          "materialConfig": {
+            "color": 3355443,
+            "roughness": 0.8
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -28.0,
+        0.8,
+        1.8,
+        0.3,
+        1.6,
+        1.0,
+        {
+          "materialConfig": {
+            "color": 3355443,
+            "roughness": 0.8
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        20,
+        1.5,
+        6.4,
+        15.0,
+        3.0,
+        7.0,
+        {
+          "materialConfig": {
+            "color": 12632256,
+            "roughness": 0.88
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        18.2,
+        4.35,
+        6.6,
+        10.2,
+        2.7,
+        6.4,
+        {
+          "materialConfig": {
+            "color": 15128294,
+            "roughness": 0.84
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        25.0,
+        4.1,
+        6.5,
+        4.4,
+        3.2,
+        6.2,
+        {
+          "materialConfig": {
+            "color": 4210752,
+            "roughness": 0.72
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        20,
+        5.9,
+        6.5,
+        15.4,
+        0.28,
+        7.2,
+        {
+          "materialConfig": {
+            "color": 4210752,
+            "roughness": 0.74
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        15.7,
+        1.4,
+        3.0,
+        4.6,
+        2.3,
+        0.12,
+        {
+          "materialConfig": {
+            "color": 7640040,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.44
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        21.5,
+        1.35,
+        3.0,
+        5.2,
+        2.4,
+        0.14,
+        {
+          "materialConfig": {
+            "color": 4210752,
+            "roughness": 0.55
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        21.5,
+        1.35,
+        2.89,
+        4.6,
+        2.0,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7640040,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.4
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        16.5,
+        4.35,
+        3.28,
+        3.7,
+        1.6,
+        0.12,
+        {
+          "materialConfig": {
+            "color": 7640040,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.45
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        21.4,
+        4.35,
+        3.28,
+        3.7,
+        1.6,
+        0.12,
+        {
+          "materialConfig": {
+            "color": 7640040,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.45
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        12.0,
+        0.8,
+        1.8,
+        0.3,
+        1.6,
+        1.0,
+        {
+          "materialConfig": {
+            "color": 4210752,
+            "roughness": 0.8
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        28.0,
+        0.8,
+        1.8,
+        0.3,
+        1.6,
+        1.0,
+        {
+          "materialConfig": {
+            "color": 4210752,
+            "roughness": 0.8
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -39,
+        1.45,
+        6.8,
+        15,
+        2.9,
+        7,
+        {
+          "materialConfig": {
+            "color": 11971232,
+            "roughness": 0.93
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -40.5,
+        4.15,
+        6.9,
+        10.5,
+        2.5,
+        6.4,
+        {
+          "materialConfig": {
+            "color": 3355443,
+            "roughness": 0.88
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -39,
+        5.55,
+        6.8,
+        15.4,
+        0.25,
+        7.2,
+        {
+          "materialConfig": {
+            "color": 3355443,
+            "roughness": 0.78
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -42,
+        1.35,
+        3.2,
+        4.4,
+        2.1,
+        0.12,
+        {
+          "materialConfig": {
+            "color": 7640040,
+            "roughness": 0.2,
+            "transparent": true,
+            "opacity": 0.42
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -36,
+        1.25,
+        3.1,
+        4.4,
+        2.2,
+        0.14,
+        {
+          "materialConfig": {
+            "color": 3355443,
+            "roughness": 0.58
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        39,
+        1.45,
+        6.8,
+        15,
+        2.9,
+        7,
+        {
+          "materialConfig": {
+            "color": 11118496,
+            "roughness": 0.93
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        40.5,
+        4.15,
+        6.9,
+        10.5,
+        2.5,
+        6.4,
+        {
+          "materialConfig": {
+            "color": 4210752,
+            "roughness": 0.88
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        39,
+        5.55,
+        6.8,
+        15.4,
+        0.25,
+        7.2,
+        {
+          "materialConfig": {
+            "color": 4210752,
+            "roughness": 0.78
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        36,
+        1.35,
+        3.2,
+        4.4,
+        2.1,
+        0.12,
+        {
+          "materialConfig": {
+            "color": 7640040,
+            "roughness": 0.2,
+            "transparent": true,
+            "opacity": 0.42
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        42,
+        1.25,
+        3.1,
+        4.4,
+        2.2,
+        0.14,
+        {
+          "materialConfig": {
+            "color": 4210752,
+            "roughness": 0.58
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -42,
+        1.8,
+        -20.0,
+        12,
+        3.6,
+        5.2,
+        {
+          "materialConfig": {
+            "color": 9409687,
+            "roughness": 0.96
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -42,
+        3.75,
+        -20.1,
+        12.4,
+        0.3,
+        5.5,
+        {
+          "materialConfig": {
+            "color": 3355443,
+            "roughness": 0.82
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -44.5,
+        1.7,
+        -17.34,
+        3.2,
+        1.4,
+        0.1,
+        {
+          "materialConfig": {
+            "color": 7640040,
+            "roughness": 0.2,
+            "transparent": true,
+            "opacity": 0.38
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -39.5,
+        1.7,
+        -17.34,
+        3.2,
+        1.4,
+        0.1,
+        {
+          "materialConfig": {
+            "color": 7640040,
+            "roughness": 0.2,
+            "transparent": true,
+            "opacity": 0.38
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -28,
+        1.8,
+        -20.0,
+        12,
+        3.6,
+        5.2,
+        {
+          "materialConfig": {
+            "color": 9541015,
+            "roughness": 0.96
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -28,
+        3.75,
+        -20.1,
+        12.4,
+        0.3,
+        5.5,
+        {
+          "materialConfig": {
+            "color": 3355443,
+            "roughness": 0.82
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -30.5,
+        1.7,
+        -17.34,
+        3.2,
+        1.4,
+        0.1,
+        {
+          "materialConfig": {
+            "color": 7640040,
+            "roughness": 0.2,
+            "transparent": true,
+            "opacity": 0.38
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -25.5,
+        1.7,
+        -17.34,
+        3.2,
+        1.4,
+        0.1,
+        {
+          "materialConfig": {
+            "color": 7640040,
+            "roughness": 0.2,
+            "transparent": true,
+            "opacity": 0.38
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -14,
+        1.8,
+        -20.0,
+        12,
+        3.6,
+        5.2,
+        {
+          "materialConfig": {
+            "color": 9672343,
+            "roughness": 0.96
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -14,
+        3.75,
+        -20.1,
+        12.4,
+        0.3,
+        5.5,
+        {
+          "materialConfig": {
+            "color": 3355443,
+            "roughness": 0.82
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -16.5,
+        1.7,
+        -17.34,
+        3.2,
+        1.4,
+        0.1,
+        {
+          "materialConfig": {
+            "color": 7640040,
+            "roughness": 0.2,
+            "transparent": true,
+            "opacity": 0.38
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -11.5,
+        1.7,
+        -17.34,
+        3.2,
+        1.4,
+        0.1,
+        {
+          "materialConfig": {
+            "color": 7640040,
+            "roughness": 0.2,
+            "transparent": true,
+            "opacity": 0.38
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        14,
+        1.8,
+        -20.0,
+        12,
+        3.6,
+        5.2,
+        {
+          "materialConfig": {
+            "color": 9803671,
+            "roughness": 0.96
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        14,
+        3.75,
+        -20.1,
+        12.4,
+        0.3,
+        5.5,
+        {
+          "materialConfig": {
+            "color": 3355443,
+            "roughness": 0.82
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        11.5,
+        1.7,
+        -17.34,
+        3.2,
+        1.4,
+        0.1,
+        {
+          "materialConfig": {
+            "color": 7640040,
+            "roughness": 0.2,
+            "transparent": true,
+            "opacity": 0.38
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        16.5,
+        1.7,
+        -17.34,
+        3.2,
+        1.4,
+        0.1,
+        {
+          "materialConfig": {
+            "color": 7640040,
+            "roughness": 0.2,
+            "transparent": true,
+            "opacity": 0.38
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        28,
+        1.8,
+        -20.0,
+        12,
+        3.6,
+        5.2,
+        {
+          "materialConfig": {
+            "color": 9934999,
+            "roughness": 0.96
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        28,
+        3.75,
+        -20.1,
+        12.4,
+        0.3,
+        5.5,
+        {
+          "materialConfig": {
+            "color": 3355443,
+            "roughness": 0.82
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        25.5,
+        1.7,
+        -17.34,
+        3.2,
+        1.4,
+        0.1,
+        {
+          "materialConfig": {
+            "color": 7640040,
+            "roughness": 0.2,
+            "transparent": true,
+            "opacity": 0.38
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        30.5,
+        1.7,
+        -17.34,
+        3.2,
+        1.4,
+        0.1,
+        {
+          "materialConfig": {
+            "color": 7640040,
+            "roughness": 0.2,
+            "transparent": true,
+            "opacity": 0.38
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        42,
+        1.8,
+        -20.0,
+        12,
+        3.6,
+        5.2,
+        {
+          "materialConfig": {
+            "color": 10066329,
+            "roughness": 0.96
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        42,
+        3.75,
+        -20.1,
+        12.4,
+        0.3,
+        5.5,
+        {
+          "materialConfig": {
+            "color": 3355443,
+            "roughness": 0.82
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        39.5,
+        1.7,
+        -17.34,
+        3.2,
+        1.4,
+        0.1,
+        {
+          "materialConfig": {
+            "color": 7640040,
+            "roughness": 0.2,
+            "transparent": true,
+            "opacity": 0.38
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        44.5,
+        1.7,
+        -17.34,
+        3.2,
+        1.4,
+        0.1,
+        {
+          "materialConfig": {
+            "color": 7640040,
+            "roughness": 0.2,
+            "transparent": true,
+            "opacity": 0.38
+          }
+        }
+      ]
+    },
+    {
+      "type": "cylinder",
+      "args": [
+        -45,
+        1.7,
+        -6.4,
+        0.34,
+        3.4,
+        {
+          "materialConfig": {
+            "color": 6508835,
+            "roughness": 1
+          }
+        },
+        18
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -45,
+        4.7,
+        -6.4,
+        2.2,
+        2.2,
+        2.2,
+        {
+          "materialConfig": {
+            "color": 3109428,
+            "roughness": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "cylinder",
+      "args": [
+        -33,
+        1.7,
+        -6.4,
+        0.34,
+        3.4,
+        {
+          "materialConfig": {
+            "color": 6508835,
+            "roughness": 1
+          }
+        },
+        18
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -33,
+        4.7,
+        -6.4,
+        2.2,
+        2.2,
+        2.2,
+        {
+          "materialConfig": {
+            "color": 3109428,
+            "roughness": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "cylinder",
+      "args": [
+        -21,
+        1.7,
+        -6.4,
+        0.34,
+        3.4,
+        {
+          "materialConfig": {
+            "color": 6508835,
+            "roughness": 1
+          }
+        },
+        18
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -21,
+        4.7,
+        -6.4,
+        2.2,
+        2.2,
+        2.2,
+        {
+          "materialConfig": {
+            "color": 3109428,
+            "roughness": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "cylinder",
+      "args": [
+        -9,
+        1.7,
+        -6.4,
+        0.34,
+        3.4,
+        {
+          "materialConfig": {
+            "color": 6508835,
+            "roughness": 1
+          }
+        },
+        18
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -9,
+        4.7,
+        -6.4,
+        2.2,
+        2.2,
+        2.2,
+        {
+          "materialConfig": {
+            "color": 3109428,
+            "roughness": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "cylinder",
+      "args": [
+        9,
+        1.7,
+        -6.4,
+        0.34,
+        3.4,
+        {
+          "materialConfig": {
+            "color": 6508835,
+            "roughness": 1
+          }
+        },
+        18
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        9,
+        4.7,
+        -6.4,
+        2.2,
+        2.2,
+        2.2,
+        {
+          "materialConfig": {
+            "color": 3109428,
+            "roughness": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "cylinder",
+      "args": [
+        21,
+        1.7,
+        -6.4,
+        0.34,
+        3.4,
+        {
+          "materialConfig": {
+            "color": 6508835,
+            "roughness": 1
+          }
+        },
+        18
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        21,
+        4.7,
+        -6.4,
+        2.2,
+        2.2,
+        2.2,
+        {
+          "materialConfig": {
+            "color": 3109428,
+            "roughness": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "cylinder",
+      "args": [
+        33,
+        1.7,
+        -6.4,
+        0.34,
+        3.4,
+        {
+          "materialConfig": {
+            "color": 6508835,
+            "roughness": 1
+          }
+        },
+        18
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        33,
+        4.7,
+        -6.4,
+        2.2,
+        2.2,
+        2.2,
+        {
+          "materialConfig": {
+            "color": 3109428,
+            "roughness": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "cylinder",
+      "args": [
+        45,
+        1.7,
+        -6.4,
+        0.34,
+        3.4,
+        {
+          "materialConfig": {
+            "color": 6508835,
+            "roughness": 1
+          }
+        },
+        18
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        45,
+        4.7,
+        -6.4,
+        2.2,
+        2.2,
+        2.2,
+        {
+          "materialConfig": {
+            "color": 3109428,
+            "roughness": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "light",
+      "args": [
+        -38,
+        4,
+        -7.0
+      ]
+    },
+    {
+      "type": "light",
+      "args": [
+        -18,
+        4,
+        -7.0
+      ]
+    },
+    {
+      "type": "light",
+      "args": [
+        18,
+        4,
+        -7.0
+      ]
+    },
+    {
+      "type": "light",
+      "args": [
+        38,
+        4,
+        -7.0
+      ]
+    },
+    {
+      "type": "cylinder",
+      "args": [
+        0,
+        0.035,
+        -6.7,
+        0.62,
+        0.055,
+        {
+          "materialConfig": {
+            "color": 3582463,
+            "roughness": 0.45,
+            "metalness": 0.05,
+            "transparent": true,
+            "opacity": 0.88
+          }
+        },
+        40
+      ],
+      "_fpFacadeGroundMarker": true
+    },
+    {
+      "type": "cylinder",
+      "args": [
+        0,
+        0.065,
+        -6.7,
+        0.25,
+        0.025,
+        {
+          "materialConfig": {
+            "color": 16777215,
+            "roughness": 0.35,
+            "transparent": true,
+            "opacity": 0.92
+          }
+        },
+        40
+      ],
+      "_fpFacadeGroundMarker": true
+    },
+    {
+      "type": "cylinder",
+      "args": [
+        0,
+        0.035,
+        -15.7,
+        0.62,
+        0.055,
+        {
+          "materialConfig": {
+            "color": 3582463,
+            "roughness": 0.45,
+            "metalness": 0.05,
+            "transparent": true,
+            "opacity": 0.88
+          }
+        },
+        40
+      ],
+      "_fpFacadeGroundMarker": true
+    },
+    {
+      "type": "cylinder",
+      "args": [
+        0,
+        0.065,
+        -15.7,
+        0.25,
+        0.025,
+        {
+          "materialConfig": {
+            "color": 16777215,
+            "roughness": 0.35,
+            "transparent": true,
+            "opacity": 0.92
+          }
+        },
+        40
+      ],
+      "_fpFacadeGroundMarker": true
+    },
+    {
+      "type": "cylinder",
+      "args": [
+        -6.2,
+        0.035,
+        -15.7,
+        0.62,
+        0.055,
+        {
+          "materialConfig": {
+            "color": 16767053,
+            "roughness": 0.45,
+            "metalness": 0.05,
+            "transparent": true,
+            "opacity": 0.88
+          }
+        },
+        40
+      ],
+      "_fpFacadeGroundMarker": true
+    },
+    {
+      "type": "cylinder",
+      "args": [
+        -6.2,
+        0.065,
+        -15.7,
+        0.25,
+        0.025,
+        {
+          "materialConfig": {
+            "color": 16777215,
+            "roughness": 0.35,
+            "transparent": true,
+            "opacity": 0.92
+          }
+        },
+        40
+      ],
+      "_fpFacadeGroundMarker": true
+    },
+    {
+      "type": "cylinder",
+      "args": [
+        6.2,
+        0.035,
+        -15.7,
+        0.62,
+        0.055,
+        {
+          "materialConfig": {
+            "color": 16767053,
+            "roughness": 0.45,
+            "metalness": 0.05,
+            "transparent": true,
+            "opacity": 0.88
+          }
+        },
+        40
+      ],
+      "_fpFacadeGroundMarker": true
+    },
+    {
+      "type": "cylinder",
+      "args": [
+        6.2,
+        0.065,
+        -15.7,
+        0.25,
+        0.025,
+        {
+          "materialConfig": {
+            "color": 16777215,
+            "roughness": 0.35,
+            "transparent": true,
+            "opacity": 0.92
+          }
+        },
+        40
+      ],
+      "_fpFacadeGroundMarker": true
+    }
+  ]
+}

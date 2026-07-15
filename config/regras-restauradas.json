@@ -1,0 +1,45 @@
+{
+  "version": "19",
+  "source": "app.js enviado pelo usuário",
+  "restoredRules": {
+    "doorFrameExclusion": {
+      "status": "restaurada exatamente",
+      "lensMm": 14,
+      "impactSensitivity": 0.9,
+      "photographerForwardOffset": 0.1,
+      "description": "Calcula impacto visual do batente usando FOV da lente, distância, direção do olhar e posição adiantada da câmera."
+    },
+    "feedbackHints": {
+      "status": "preservada exatamente",
+      "recentHistorySize": 10,
+      "categories": [
+        "agent",
+        "door",
+        "furniture",
+        "direction",
+        "vertical",
+        "horizon",
+        "placement",
+        "angle",
+        "quality",
+        "generic"
+      ],
+      "selection": "Escolhe a categoria pelo pior critério e evita repetir frases entre as 10 mensagens recentes."
+    },
+    "technicalHints": {
+      "status": "preservada exatamente",
+      "priority": [
+        "agent",
+        "door",
+        "furniture",
+        "lowest technical score"
+      ],
+      "description": "A dica técnica descreve o erro prioritário e gera uma correção contextual."
+    }
+  },
+  "verification": {
+    "feedbackSha256": "52ad4a81439fd27afd5fe7454e6ec9790f35a0ae66e42a3c48c6706c50650282",
+    "technicalHintSha256": "ea012b2f337142e3d3346bdceafb87280b7bec244f975c1caa8b582607e37709",
+    "doorRuleSha256": "1fc7bb1059ce612346ed110b5c5dd856279080a33278c1b6a5eb695cf13a5d0e"
+  }
+}

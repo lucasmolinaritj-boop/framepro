@@ -1,0 +1,12 @@
+{
+  "version": 3,
+  "note": "O servidor detecta automaticamente todos os JSON desta pasta. Esta lista também permite inspeção manual.",
+  "phases": [
+    "apartamento.json",
+    "casa-terrea.json",
+    "mansao.json",
+    "studio.json",
+    "fachada-predio-curitiba.json",
+    "sobrado-curitiba-2-andares.json"
+  ]
+}

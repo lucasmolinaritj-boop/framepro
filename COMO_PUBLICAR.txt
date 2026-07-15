@@ -1,0 +1,30 @@
+FRAMEPRO — PACOTE PRONTO PARA SITE
+
+UPLOAD EM HOSTING/CPanel:
+1. Abra o Gerenciador de Arquivos da hospedagem.
+2. Entre em public_html (ou na pasta/subdomínio onde o jogo ficará).
+3. Envie TODO o conteúdo desta pasta, mantendo:
+   index.html
+   configuracoes.txt
+   core/
+   phases/
+   config/
+4. Acesse pelo domínio ou subpasta escolhida.
+
+Exemplo em subpasta:
+https://seusite.com/framepro/
+
+IMPORTANTE:
+- Não abra index.html diretamente pelo computador (file://).
+- O servidor precisa servir arquivos .json, .js e .txt.
+- Edite configuracoes.txt no servidor para ativar/desativar recursos.
+- Após editar, atualize com Ctrl+F5.
+
+RANKING:
+- Nesta versão, o ranking é salvo no localStorage do navegador.
+- Cada jogador/dispositivo terá seus próprios recordes.
+- Para um ranking global compartilhado, será preciso conectar um backend/banco de dados.
+
+FOTOS:
+- No site, o navegador salva/baixa as fotos pelo fluxo normal do jogo.
+- O endpoint local /__framepro_save_photo não existe na hospedagem estática e é ignorado pelo fallback do jogo.

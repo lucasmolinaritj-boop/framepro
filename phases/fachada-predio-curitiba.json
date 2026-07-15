@@ -1,0 +1,5027 @@
+{
+  "id": "fachada_predio_curitiba",
+  "label": "Fachada de Prédio — Curitiba",
+  "subtitle": "4 fotos de fachada • frontal + diagonais + margem do prédio",
+  "icon": "🏢",
+  "order": [
+    "Fachada do Prédio"
+  ],
+  "roomsRaw": {
+    "Fachada do Prédio": {
+      "cx": 0,
+      "cz": -13,
+      "w": 95,
+      "d": 32
+    }
+  },
+  "detection": {
+    "rules": [
+      {
+        "room": "Fachada do Prédio"
+      }
+    ]
+  },
+  "roomRules": {
+    "Fachada do Prédio": {
+      "type": "facade",
+      "disableVerticalAlignment": true,
+      "requireTopVisible": true,
+      "buildingBounds": {
+        "minX": -10,
+        "maxX": 10,
+        "minY": 0,
+        "maxY": 19,
+        "minZ": 1.5,
+        "maxZ": 10
+      },
+      "photoSequence": [
+        "frontNear",
+        "frontFar",
+        "diagLeft",
+        "diagRight"
+      ],
+      "facadeShots": [
+        {
+          "id": "frontNear",
+          "label": "Frontal próxima",
+          "position": {
+            "x": 0,
+            "z": -7.2
+          },
+          "radius": 0.6,
+          "mode": "central",
+          "aim": {
+            "type": "point",
+            "x": 0.0,
+            "y": 6.5,
+            "z": 1.5,
+            "horizontalTolerance": 4,
+            "verticalTolerance": 4,
+            "minPitchDeg": 0
+          },
+          "allowExtraPhotos": true
+        },
+        {
+          "id": "frontFar",
+          "label": "Frontal oposta",
+          "position": {
+            "x": 0,
+            "z": -19.55
+          },
+          "radius": 0.6,
+          "mode": "central",
+          "aim": {
+            "type": "point",
+            "x": 0.0,
+            "y": 9.5,
+            "z": 1.5,
+            "horizontalTolerance": 4,
+            "verticalTolerance": 4,
+            "minPitchDeg": 0
+          },
+          "allowExtraPhotos": true,
+          "praiseZoomMinMm": 15,
+          "zoomPraise": "Excelente! Da calçada oposta, o zoom comprimiu a perspectiva e valorizou muito a fachada."
+        },
+        {
+          "id": "diagLeft",
+          "label": "Diagonal esquerda",
+          "position": {
+            "x": -6.0,
+            "z": -19.55
+          },
+          "radius": 0.6,
+          "mode": "diagonal",
+          "aim": {
+            "type": "point",
+            "x": 13.5,
+            "y": 9.5,
+            "z": 1.5,
+            "horizontalTolerance": 7,
+            "minPitchDeg": 0
+          },
+          "allowExtraPhotos": true
+        },
+        {
+          "id": "diagRight",
+          "label": "Diagonal direita",
+          "position": {
+            "x": 6.0,
+            "z": -19.55
+          },
+          "radius": 0.6,
+          "mode": "diagonal",
+          "aim": {
+            "type": "point",
+            "x": -13.5,
+            "y": 9.5,
+            "z": 1.5,
+            "horizontalTolerance": 7,
+            "minPitchDeg": 0
+          },
+          "allowExtraPhotos": true
+        }
+      ],
+      "roadHorizonY": 1.2
+    }
+  },
+  "bounds": {
+    "minX": -48,
+    "maxX": 48,
+    "minZ": -23,
+    "maxZ": 12
+  },
+  "spawn": {
+    "x": 0,
+    "y": 1.4,
+    "z": -19
+  },
+  "spawnAngle": 0,
+  "mini": {
+    "outer": [
+      -50,
+      -24,
+      100,
+      38
+    ],
+    "rooms": {
+      "Fachada do Prédio": {
+        "x": -48,
+        "z": -23,
+        "w": 96,
+        "h": 35,
+        "label": "Rua + Prédio"
+      }
+    }
+  },
+  "traffic": {
+    "enabled": true,
+    "lanes": [
+      {
+        "axis": "x",
+        "x": 0,
+        "z": -11.3,
+        "length": 94,
+        "direction": 1,
+        "count": 2,
+        "speedMin": 5,
+        "speedMax": 8,
+        "chargeSpeed": 14
+      },
+      {
+        "axis": "x",
+        "x": 0,
+        "z": -16.7,
+        "length": 94,
+        "direction": -1,
+        "count": 2,
+        "speedMin": 5,
+        "speedMax": 8,
+        "chargeSpeed": 14
+      }
+    ]
+  },
+  "scene": [
+    {
+      "type": "box",
+      "args": [
+        0,
+        -0.12,
+        0,
+        100,
+        0.2,
+        50,
+        {
+          "materialConfig": {
+            "color": 4811583,
+            "roughness": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        0,
+        -0.02,
+        -14,
+        100,
+        0.12,
+        12,
+        {
+          "materialConfig": {
+            "color": 3356218,
+            "roughness": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        0,
+        0.05,
+        -6.7,
+        100,
+        0.18,
+        2.6,
+        {
+          "materialConfig": {
+            "color": 10987426,
+            "roughness": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        0,
+        0.05,
+        -21.3,
+        100,
+        0.18,
+        2.6,
+        {
+          "materialConfig": {
+            "color": 10987426,
+            "roughness": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        0,
+        0.18,
+        -8.1,
+        100,
+        0.25,
+        0.22,
+        {
+          "materialConfig": {
+            "color": 14210511,
+            "roughness": 0.9
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        0,
+        0.18,
+        -19.9,
+        100,
+        0.25,
+        0.22,
+        {
+          "materialConfig": {
+            "color": 14210511,
+            "roughness": 0.9
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        0,
+        9.0,
+        6,
+        18,
+        18,
+        8,
+        {
+          "materialConfig": {
+            "color": 14210511,
+            "roughness": 0.9
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        0,
+        18.4,
+        6,
+        20,
+        1.0,
+        9,
+        {
+          "materialConfig": {
+            "color": 2698545,
+            "roughness": 0.72
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        0,
+        0.9,
+        1.85,
+        7,
+        1.8,
+        0.2,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        0,
+        2.0,
+        1.65,
+        7,
+        4,
+        0.5,
+        {
+          "materialConfig": {
+            "color": 2698545,
+            "roughness": 0.72
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -6,
+        3.0,
+        1.88,
+        2.6,
+        1.5,
+        0.12,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -6,
+        2.0,
+        1.7,
+        3.1,
+        0.18,
+        1.25,
+        {
+          "materialConfig": {
+            "color": 2698545,
+            "roughness": 0.72
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -2,
+        3.0,
+        1.88,
+        2.6,
+        1.5,
+        0.12,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -2,
+        2.0,
+        1.7,
+        3.1,
+        0.18,
+        1.25,
+        {
+          "materialConfig": {
+            "color": 2698545,
+            "roughness": 0.72
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        2,
+        3.0,
+        1.88,
+        2.6,
+        1.5,
+        0.12,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        2,
+        2.0,
+        1.7,
+        3.1,
+        0.18,
+        1.25,
+        {
+          "materialConfig": {
+            "color": 2698545,
+            "roughness": 0.72
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        6,
+        3.0,
+        1.88,
+        2.6,
+        1.5,
+        0.12,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        6,
+        2.0,
+        1.7,
+        3.1,
+        0.18,
+        1.25,
+        {
+          "materialConfig": {
+            "color": 2698545,
+            "roughness": 0.72
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -8.7,
+        3.0,
+        5.7,
+        0.15,
+        1.7,
+        5.4,
+        {
+          "materialConfig": {
+            "color": 2698545,
+            "roughness": 0.72
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        8.7,
+        3.0,
+        5.7,
+        0.15,
+        1.7,
+        5.4,
+        {
+          "materialConfig": {
+            "color": 2698545,
+            "roughness": 0.72
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -6,
+        5.75,
+        1.88,
+        2.6,
+        1.5,
+        0.12,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -6,
+        4.75,
+        1.7,
+        3.1,
+        0.18,
+        1.25,
+        {
+          "materialConfig": {
+            "color": 2698545,
+            "roughness": 0.72
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -2,
+        5.75,
+        1.88,
+        2.6,
+        1.5,
+        0.12,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -2,
+        4.75,
+        1.7,
+        3.1,
+        0.18,
+        1.25,
+        {
+          "materialConfig": {
+            "color": 2698545,
+            "roughness": 0.72
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        2,
+        5.75,
+        1.88,
+        2.6,
+        1.5,
+        0.12,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        2,
+        4.75,
+        1.7,
+        3.1,
+        0.18,
+        1.25,
+        {
+          "materialConfig": {
+            "color": 2698545,
+            "roughness": 0.72
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        6,
+        5.75,
+        1.88,
+        2.6,
+        1.5,
+        0.12,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        6,
+        4.75,
+        1.7,
+        3.1,
+        0.18,
+        1.25,
+        {
+          "materialConfig": {
+            "color": 2698545,
+            "roughness": 0.72
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -8.7,
+        5.75,
+        5.7,
+        0.15,
+        1.7,
+        5.4,
+        {
+          "materialConfig": {
+            "color": 2698545,
+            "roughness": 0.72
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        8.7,
+        5.75,
+        5.7,
+        0.15,
+        1.7,
+        5.4,
+        {
+          "materialConfig": {
+            "color": 2698545,
+            "roughness": 0.72
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -6,
+        8.5,
+        1.88,
+        2.6,
+        1.5,
+        0.12,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -6,
+        7.5,
+        1.7,
+        3.1,
+        0.18,
+        1.25,
+        {
+          "materialConfig": {
+            "color": 2698545,
+            "roughness": 0.72
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -2,
+        8.5,
+        1.88,
+        2.6,
+        1.5,
+        0.12,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -2,
+        7.5,
+        1.7,
+        3.1,
+        0.18,
+        1.25,
+        {
+          "materialConfig": {
+            "color": 2698545,
+            "roughness": 0.72
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        2,
+        8.5,
+        1.88,
+        2.6,
+        1.5,
+        0.12,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        2,
+        7.5,
+        1.7,
+        3.1,
+        0.18,
+        1.25,
+        {
+          "materialConfig": {
+            "color": 2698545,
+            "roughness": 0.72
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        6,
+        8.5,
+        1.88,
+        2.6,
+        1.5,
+        0.12,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        6,
+        7.5,
+        1.7,
+        3.1,
+        0.18,
+        1.25,
+        {
+          "materialConfig": {
+            "color": 2698545,
+            "roughness": 0.72
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -8.7,
+        8.5,
+        5.7,
+        0.15,
+        1.7,
+        5.4,
+        {
+          "materialConfig": {
+            "color": 2698545,
+            "roughness": 0.72
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        8.7,
+        8.5,
+        5.7,
+        0.15,
+        1.7,
+        5.4,
+        {
+          "materialConfig": {
+            "color": 2698545,
+            "roughness": 0.72
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -6,
+        11.25,
+        1.88,
+        2.6,
+        1.5,
+        0.12,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -6,
+        10.25,
+        1.7,
+        3.1,
+        0.18,
+        1.25,
+        {
+          "materialConfig": {
+            "color": 2698545,
+            "roughness": 0.72
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -2,
+        11.25,
+        1.88,
+        2.6,
+        1.5,
+        0.12,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -2,
+        10.25,
+        1.7,
+        3.1,
+        0.18,
+        1.25,
+        {
+          "materialConfig": {
+            "color": 2698545,
+            "roughness": 0.72
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        2,
+        11.25,
+        1.88,
+        2.6,
+        1.5,
+        0.12,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        2,
+        10.25,
+        1.7,
+        3.1,
+        0.18,
+        1.25,
+        {
+          "materialConfig": {
+            "color": 2698545,
+            "roughness": 0.72
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        6,
+        11.25,
+        1.88,
+        2.6,
+        1.5,
+        0.12,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        6,
+        10.25,
+        1.7,
+        3.1,
+        0.18,
+        1.25,
+        {
+          "materialConfig": {
+            "color": 2698545,
+            "roughness": 0.72
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -8.7,
+        11.25,
+        5.7,
+        0.15,
+        1.7,
+        5.4,
+        {
+          "materialConfig": {
+            "color": 2698545,
+            "roughness": 0.72
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        8.7,
+        11.25,
+        5.7,
+        0.15,
+        1.7,
+        5.4,
+        {
+          "materialConfig": {
+            "color": 2698545,
+            "roughness": 0.72
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -6,
+        14.0,
+        1.88,
+        2.6,
+        1.5,
+        0.12,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -6,
+        13.0,
+        1.7,
+        3.1,
+        0.18,
+        1.25,
+        {
+          "materialConfig": {
+            "color": 2698545,
+            "roughness": 0.72
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -2,
+        14.0,
+        1.88,
+        2.6,
+        1.5,
+        0.12,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -2,
+        13.0,
+        1.7,
+        3.1,
+        0.18,
+        1.25,
+        {
+          "materialConfig": {
+            "color": 2698545,
+            "roughness": 0.72
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        2,
+        14.0,
+        1.88,
+        2.6,
+        1.5,
+        0.12,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        2,
+        13.0,
+        1.7,
+        3.1,
+        0.18,
+        1.25,
+        {
+          "materialConfig": {
+            "color": 2698545,
+            "roughness": 0.72
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        6,
+        14.0,
+        1.88,
+        2.6,
+        1.5,
+        0.12,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        6,
+        13.0,
+        1.7,
+        3.1,
+        0.18,
+        1.25,
+        {
+          "materialConfig": {
+            "color": 2698545,
+            "roughness": 0.72
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -8.7,
+        14.0,
+        5.7,
+        0.15,
+        1.7,
+        5.4,
+        {
+          "materialConfig": {
+            "color": 2698545,
+            "roughness": 0.72
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        8.7,
+        14.0,
+        5.7,
+        0.15,
+        1.7,
+        5.4,
+        {
+          "materialConfig": {
+            "color": 2698545,
+            "roughness": 0.72
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -6,
+        16.75,
+        1.88,
+        2.6,
+        1.5,
+        0.12,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -6,
+        15.75,
+        1.7,
+        3.1,
+        0.18,
+        1.25,
+        {
+          "materialConfig": {
+            "color": 2698545,
+            "roughness": 0.72
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -2,
+        16.75,
+        1.88,
+        2.6,
+        1.5,
+        0.12,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -2,
+        15.75,
+        1.7,
+        3.1,
+        0.18,
+        1.25,
+        {
+          "materialConfig": {
+            "color": 2698545,
+            "roughness": 0.72
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        2,
+        16.75,
+        1.88,
+        2.6,
+        1.5,
+        0.12,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        2,
+        15.75,
+        1.7,
+        3.1,
+        0.18,
+        1.25,
+        {
+          "materialConfig": {
+            "color": 2698545,
+            "roughness": 0.72
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        6,
+        16.75,
+        1.88,
+        2.6,
+        1.5,
+        0.12,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        6,
+        15.75,
+        1.7,
+        3.1,
+        0.18,
+        1.25,
+        {
+          "materialConfig": {
+            "color": 2698545,
+            "roughness": 0.72
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -8.7,
+        16.75,
+        5.7,
+        0.15,
+        1.7,
+        5.4,
+        {
+          "materialConfig": {
+            "color": 2698545,
+            "roughness": 0.72
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        8.7,
+        16.75,
+        5.7,
+        0.15,
+        1.7,
+        5.4,
+        {
+          "materialConfig": {
+            "color": 2698545,
+            "roughness": 0.72
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -43,
+        4.5,
+        6,
+        8,
+        9,
+        8,
+        {
+          "materialConfig": {
+            "color": 11971232,
+            "roughness": 0.95
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -45,
+        2,
+        1.92,
+        1.25,
+        0.85,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -43,
+        2,
+        1.92,
+        1.25,
+        0.85,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -41,
+        2,
+        1.92,
+        1.25,
+        0.85,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -34,
+        6.0,
+        6,
+        8,
+        12,
+        8,
+        {
+          "materialConfig": {
+            "color": 10331560,
+            "roughness": 0.95
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -36,
+        2,
+        1.92,
+        1.25,
+        0.85,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -34,
+        2,
+        1.92,
+        1.25,
+        0.85,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -32,
+        2,
+        1.92,
+        1.25,
+        0.85,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -36,
+        4,
+        1.92,
+        1.25,
+        0.85,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -34,
+        4,
+        1.92,
+        1.25,
+        0.85,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -32,
+        4,
+        1.92,
+        1.25,
+        0.85,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -25,
+        7.5,
+        6,
+        8,
+        15,
+        8,
+        {
+          "materialConfig": {
+            "color": 12892326,
+            "roughness": 0.95
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -27,
+        2,
+        1.92,
+        1.25,
+        0.85,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -25,
+        2,
+        1.92,
+        1.25,
+        0.85,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -23,
+        2,
+        1.92,
+        1.25,
+        0.85,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -27,
+        4,
+        1.92,
+        1.25,
+        0.85,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -25,
+        4,
+        1.92,
+        1.25,
+        0.85,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -23,
+        4,
+        1.92,
+        1.25,
+        0.85,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -27,
+        6,
+        1.92,
+        1.25,
+        0.85,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -25,
+        6,
+        1.92,
+        1.25,
+        0.85,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -23,
+        6,
+        1.92,
+        1.25,
+        0.85,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        25,
+        5.0,
+        6,
+        8,
+        10,
+        8,
+        {
+          "materialConfig": {
+            "color": 11118496,
+            "roughness": 0.95
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        23,
+        2,
+        1.92,
+        1.25,
+        0.85,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        25,
+        2,
+        1.92,
+        1.25,
+        0.85,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        27,
+        2,
+        1.92,
+        1.25,
+        0.85,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        23,
+        4,
+        1.92,
+        1.25,
+        0.85,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        25,
+        4,
+        1.92,
+        1.25,
+        0.85,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        27,
+        4,
+        1.92,
+        1.25,
+        0.85,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        34,
+        7.0,
+        6,
+        8,
+        14,
+        8,
+        {
+          "materialConfig": {
+            "color": 10398370,
+            "roughness": 0.95
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        32,
+        2,
+        1.92,
+        1.25,
+        0.85,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        34,
+        2,
+        1.92,
+        1.25,
+        0.85,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        36,
+        2,
+        1.92,
+        1.25,
+        0.85,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        32,
+        4,
+        1.92,
+        1.25,
+        0.85,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        34,
+        4,
+        1.92,
+        1.25,
+        0.85,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        36,
+        4,
+        1.92,
+        1.25,
+        0.85,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        32,
+        6,
+        1.92,
+        1.25,
+        0.85,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        34,
+        6,
+        1.92,
+        1.25,
+        0.85,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        36,
+        6,
+        1.92,
+        1.25,
+        0.85,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        43,
+        5.5,
+        6,
+        8,
+        11,
+        8,
+        {
+          "materialConfig": {
+            "color": 11904919,
+            "roughness": 0.95
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        41,
+        2,
+        1.92,
+        1.25,
+        0.85,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        43,
+        2,
+        1.92,
+        1.25,
+        0.85,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        45,
+        2,
+        1.92,
+        1.25,
+        0.85,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        41,
+        4,
+        1.92,
+        1.25,
+        0.85,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        43,
+        4,
+        1.92,
+        1.25,
+        0.85,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        45,
+        4,
+        1.92,
+        1.25,
+        0.85,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -45,
+        3.5,
+        -27,
+        9,
+        7,
+        8,
+        {
+          "materialConfig": {
+            "color": 9409687,
+            "roughness": 0.96
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -47.2,
+        2,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -45,
+        2,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -42.8,
+        2,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -47.2,
+        4,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -45,
+        4,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -42.8,
+        4,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -47.2,
+        6,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -45,
+        6,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -42.8,
+        6,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -34,
+        4.5,
+        -27,
+        9,
+        9,
+        8,
+        {
+          "materialConfig": {
+            "color": 9541015,
+            "roughness": 0.96
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -36.2,
+        2,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -34,
+        2,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -31.8,
+        2,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -36.2,
+        4,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -34,
+        4,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -31.8,
+        4,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -36.2,
+        6,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -34,
+        6,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -31.8,
+        6,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -36.2,
+        8,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -34,
+        8,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -31.8,
+        8,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -23,
+        5.5,
+        -27,
+        9,
+        11,
+        8,
+        {
+          "materialConfig": {
+            "color": 9672343,
+            "roughness": 0.96
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -25.2,
+        2,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -23,
+        2,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -20.8,
+        2,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -25.2,
+        4,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -23,
+        4,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -20.8,
+        4,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -25.2,
+        6,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -23,
+        6,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -20.8,
+        6,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -25.2,
+        8,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -23,
+        8,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -20.8,
+        8,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -25.2,
+        10,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -23,
+        10,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -20.8,
+        10,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -12,
+        6.5,
+        -27,
+        9,
+        13,
+        8,
+        {
+          "materialConfig": {
+            "color": 9803671,
+            "roughness": 0.96
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -14.2,
+        2,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -12,
+        2,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -9.8,
+        2,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -14.2,
+        4,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -12,
+        4,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -9.8,
+        4,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -14.2,
+        6,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -12,
+        6,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -9.8,
+        6,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -14.2,
+        8,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -12,
+        8,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -9.8,
+        8,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -14.2,
+        10,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -12,
+        10,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -9.8,
+        10,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -14.2,
+        12,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -12,
+        12,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -9.8,
+        12,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        12,
+        3.5,
+        -27,
+        9,
+        7,
+        8,
+        {
+          "materialConfig": {
+            "color": 9934999,
+            "roughness": 0.96
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        9.8,
+        2,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        12,
+        2,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        14.2,
+        2,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        9.8,
+        4,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        12,
+        4,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        14.2,
+        4,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        9.8,
+        6,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        12,
+        6,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        14.2,
+        6,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        23,
+        4.5,
+        -27,
+        9,
+        9,
+        8,
+        {
+          "materialConfig": {
+            "color": 10066327,
+            "roughness": 0.96
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        20.8,
+        2,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        23,
+        2,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        25.2,
+        2,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        20.8,
+        4,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        23,
+        4,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        25.2,
+        4,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        20.8,
+        6,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        23,
+        6,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        25.2,
+        6,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        20.8,
+        8,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        23,
+        8,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        25.2,
+        8,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        34,
+        5.5,
+        -27,
+        9,
+        11,
+        8,
+        {
+          "materialConfig": {
+            "color": 10197655,
+            "roughness": 0.96
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        31.8,
+        2,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        34,
+        2,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        36.2,
+        2,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        31.8,
+        4,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        34,
+        4,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        36.2,
+        4,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        31.8,
+        6,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        34,
+        6,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        36.2,
+        6,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        31.8,
+        8,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        34,
+        8,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        36.2,
+        8,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        31.8,
+        10,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        34,
+        10,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        36.2,
+        10,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        45,
+        6.5,
+        -27,
+        9,
+        13,
+        8,
+        {
+          "materialConfig": {
+            "color": 10328983,
+            "roughness": 0.96
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        42.8,
+        2,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        45,
+        2,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        47.2,
+        2,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        42.8,
+        4,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        45,
+        4,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        47.2,
+        4,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        42.8,
+        6,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        45,
+        6,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        47.2,
+        6,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        42.8,
+        8,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        45,
+        8,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        47.2,
+        8,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        42.8,
+        10,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        45,
+        10,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        47.2,
+        10,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        42.8,
+        12,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        45,
+        12,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        47.2,
+        12,
+        -22.92,
+        1.3,
+        0.8,
+        0.08,
+        {
+          "materialConfig": {
+            "color": 7974855,
+            "roughness": 0.18,
+            "transparent": true,
+            "opacity": 0.48
+          }
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -46,
+        0.55,
+        -6.5,
+        0.5,
+        1.1,
+        0.5,
+        {
+          "materialConfig": {
+            "color": 7557434,
+            "roughness": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "cylinder",
+      "args": [
+        -46,
+        2.0,
+        -6.5,
+        1.0,
+        2.5,
+        {
+          "materialConfig": {
+            "color": 4811583,
+            "roughness": 1
+          }
+        },
+        18
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -37,
+        0.55,
+        -6.5,
+        0.5,
+        1.1,
+        0.5,
+        {
+          "materialConfig": {
+            "color": 7557434,
+            "roughness": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "cylinder",
+      "args": [
+        -37,
+        2.0,
+        -6.5,
+        1.0,
+        2.5,
+        {
+          "materialConfig": {
+            "color": 4811583,
+            "roughness": 1
+          }
+        },
+        18
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -28,
+        0.55,
+        -6.5,
+        0.5,
+        1.1,
+        0.5,
+        {
+          "materialConfig": {
+            "color": 7557434,
+            "roughness": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "cylinder",
+      "args": [
+        -28,
+        2.0,
+        -6.5,
+        1.0,
+        2.5,
+        {
+          "materialConfig": {
+            "color": 4811583,
+            "roughness": 1
+          }
+        },
+        18
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -19,
+        0.55,
+        -6.5,
+        0.5,
+        1.1,
+        0.5,
+        {
+          "materialConfig": {
+            "color": 7557434,
+            "roughness": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "cylinder",
+      "args": [
+        -19,
+        2.0,
+        -6.5,
+        1.0,
+        2.5,
+        {
+          "materialConfig": {
+            "color": 4811583,
+            "roughness": 1
+          }
+        },
+        18
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -10,
+        0.55,
+        -6.5,
+        0.5,
+        1.1,
+        0.5,
+        {
+          "materialConfig": {
+            "color": 7557434,
+            "roughness": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "cylinder",
+      "args": [
+        -10,
+        2.0,
+        -6.5,
+        1.0,
+        2.5,
+        {
+          "materialConfig": {
+            "color": 4811583,
+            "roughness": 1
+          }
+        },
+        18
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        -1,
+        0.55,
+        -6.5,
+        0.5,
+        1.1,
+        0.5,
+        {
+          "materialConfig": {
+            "color": 7557434,
+            "roughness": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "cylinder",
+      "args": [
+        -1,
+        2.0,
+        -6.5,
+        1.0,
+        2.5,
+        {
+          "materialConfig": {
+            "color": 4811583,
+            "roughness": 1
+          }
+        },
+        18
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        8,
+        0.55,
+        -6.5,
+        0.5,
+        1.1,
+        0.5,
+        {
+          "materialConfig": {
+            "color": 7557434,
+            "roughness": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "cylinder",
+      "args": [
+        8,
+        2.0,
+        -6.5,
+        1.0,
+        2.5,
+        {
+          "materialConfig": {
+            "color": 4811583,
+            "roughness": 1
+          }
+        },
+        18
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        17,
+        0.55,
+        -6.5,
+        0.5,
+        1.1,
+        0.5,
+        {
+          "materialConfig": {
+            "color": 7557434,
+            "roughness": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "cylinder",
+      "args": [
+        17,
+        2.0,
+        -6.5,
+        1.0,
+        2.5,
+        {
+          "materialConfig": {
+            "color": 4811583,
+            "roughness": 1
+          }
+        },
+        18
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        26,
+        0.55,
+        -6.5,
+        0.5,
+        1.1,
+        0.5,
+        {
+          "materialConfig": {
+            "color": 7557434,
+            "roughness": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "cylinder",
+      "args": [
+        26,
+        2.0,
+        -6.5,
+        1.0,
+        2.5,
+        {
+          "materialConfig": {
+            "color": 4811583,
+            "roughness": 1
+          }
+        },
+        18
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        35,
+        0.55,
+        -6.5,
+        0.5,
+        1.1,
+        0.5,
+        {
+          "materialConfig": {
+            "color": 7557434,
+            "roughness": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "cylinder",
+      "args": [
+        35,
+        2.0,
+        -6.5,
+        1.0,
+        2.5,
+        {
+          "materialConfig": {
+            "color": 4811583,
+            "roughness": 1
+          }
+        },
+        18
+      ]
+    },
+    {
+      "type": "box",
+      "args": [
+        44,
+        0.55,
+        -6.5,
+        0.5,
+        1.1,
+        0.5,
+        {
+          "materialConfig": {
+            "color": 7557434,
+            "roughness": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "cylinder",
+      "args": [
+        44,
+        2.0,
+        -6.5,
+        1.0,
+        2.5,
+        {
+          "materialConfig": {
+            "color": 4811583,
+            "roughness": 1
+          }
+        },
+        18
+      ]
+    },
+    {
+      "type": "light",
+      "args": [
+        -38,
+        4,
+        -7
+      ]
+    },
+    {
+      "type": "light",
+      "args": [
+        -18,
+        4,
+        -7
+      ]
+    },
+    {
+      "type": "light",
+      "args": [
+        18,
+        4,
+        -7
+      ]
+    },
+    {
+      "type": "light",
+      "args": [
+        38,
+        4,
+        -7
+      ]
+    },
+    {
+      "type": "cylinder",
+      "args": [
+        0,
+        0.035,
+        -8.1,
+        0.62,
+        0.055,
+        {
+          "materialConfig": {
+            "color": 3582463,
+            "roughness": 0.45,
+            "metalness": 0.05,
+            "transparent": true,
+            "opacity": 0.88
+          }
+        },
+        40
+      ],
+      "_fpFacadeGroundMarker": true
+    },
+    {
+      "type": "cylinder",
+      "args": [
+        0,
+        0.065,
+        -8.1,
+        0.25,
+        0.025,
+        {
+          "materialConfig": {
+            "color": 16777215,
+            "roughness": 0.35,
+            "transparent": true,
+            "opacity": 0.92
+          }
+        },
+        40
+      ],
+      "_fpFacadeGroundMarker": true
+    },
+    {
+      "type": "cylinder",
+      "args": [
+        0,
+        0.035,
+        -19.9,
+        0.62,
+        0.055,
+        {
+          "materialConfig": {
+            "color": 3582463,
+            "roughness": 0.45,
+            "metalness": 0.05,
+            "transparent": true,
+            "opacity": 0.88
+          }
+        },
+        40
+      ],
+      "_fpFacadeGroundMarker": true
+    },
+    {
+      "type": "cylinder",
+      "args": [
+        0,
+        0.065,
+        -19.9,
+        0.25,
+        0.025,
+        {
+          "materialConfig": {
+            "color": 16777215,
+            "roughness": 0.35,
+            "transparent": true,
+            "opacity": 0.92
+          }
+        },
+        40
+      ],
+      "_fpFacadeGroundMarker": true
+    },
+    {
+      "type": "cylinder",
+      "args": [
+        -4.5,
+        0.035,
+        -19.9,
+        0.62,
+        0.055,
+        {
+          "materialConfig": {
+            "color": 16767053,
+            "roughness": 0.45,
+            "metalness": 0.05,
+            "transparent": true,
+            "opacity": 0.88
+          }
+        },
+        40
+      ],
+      "_fpFacadeGroundMarker": true
+    },
+    {
+      "type": "cylinder",
+      "args": [
+        -4.5,
+        0.065,
+        -19.9,
+        0.25,
+        0.025,
+        {
+          "materialConfig": {
+            "color": 16777215,
+            "roughness": 0.35,
+            "transparent": true,
+            "opacity": 0.92
+          }
+        },
+        40
+      ],
+      "_fpFacadeGroundMarker": true
+    },
+    {
+      "type": "cylinder",
+      "args": [
+        4.5,
+        0.035,
+        -19.9,
+        0.62,
+        0.055,
+        {
+          "materialConfig": {
+            "color": 16767053,
+            "roughness": 0.45,
+            "metalness": 0.05,
+            "transparent": true,
+            "opacity": 0.88
+          }
+        },
+        40
+      ],
+      "_fpFacadeGroundMarker": true
+    },
+    {
+      "type": "cylinder",
+      "args": [
+        4.5,
+        0.065,
+        -19.9,
+        0.25,
+        0.025,
+        {
+          "materialConfig": {
+            "color": 16777215,
+            "roughness": 0.35,
+            "transparent": true,
+            "opacity": 0.92
+          }
+        },
+        40
+      ],
+      "_fpFacadeGroundMarker": true
+    }
+  ]
+}
