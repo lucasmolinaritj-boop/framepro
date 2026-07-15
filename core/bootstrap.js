@@ -62,7 +62,7 @@
       script.async = false;
       script.onload = () => {
         const mobileFix = document.createElement("script");
-        mobileFix.src = "core/mobile-web-fix.js?v=1";
+        mobileFix.src = "core/mobile-web-fix.js?v=2";
         mobileFix.async = false;
         mobileFix.onload = resolve;
         mobileFix.onerror = () => {
