@@ -62,9 +62,9 @@
     catch (error) { console.warn(error.message); }
     try { await loadScript("core/mobile-web-fix.js?v=4", "Falha ao carregar correção mobile"); }
     catch (error) { console.warn(error.message); }
-    try { await loadScript("core/mobile-controls-v5.js?v=13", "Falha ao carregar controles mobile V13"); }
+    try { await loadScript("core/mobile-controls-v5.js?v=14", "Falha ao carregar controles mobile V14"); }
     catch (error) { console.warn(error.message); }
-    try { await loadScript("core/mobile-sensors-v8.js?v=12", "Falha ao carregar sensores mobile V12"); }
+    try { await loadScript("core/mobile-sensors-v8.js?v=13", "Falha ao carregar sensores mobile V13"); }
     catch (error) { console.warn(error.message); }
   }
 
