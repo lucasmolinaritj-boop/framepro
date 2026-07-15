@@ -1,0 +1,38 @@
+/* FramePro Mobile UI Guard V1 — zonas responsivas sem sobreposição */
+(function(){
+'use strict';
+const mobile=/Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent||'')||(window.matchMedia&&matchMedia('(pointer:coarse)').matches);if(!mobile)return;
+const style=document.createElement('style');style.id='fp-mobile-ui-guard-v1';style.textContent=`
+html.fp-web-mobile,html.fp-web-mobile body{overflow:hidden!important;width:100%!important;height:100%!important}
+html.fp-web-mobile *{box-sizing:border-box!important}
+html.fp-web-mobile #gameShell{inset:0!important;width:100dvw!important;height:100dvh!important;overflow:hidden!important}
+html.fp-web-mobile #fpMobileV4{position:fixed!important;inset:0!important;overflow:hidden!important;pointer-events:none!important}
+html.fp-web-mobile #fpMobileV4>*{max-width:calc(100dvw - 12px)!important;max-height:calc(100dvh - 12px)!important}
+html.fp-web-mobile #topbar{position:fixed!important;left:clamp(104px,18vw,132px)!important;right:clamp(104px,18vw,132px)!important;top:max(4px,env(safe-area-inset-top))!important;height:30px!important;max-height:30px!important;overflow:hidden!important;padding:2px 4px!important;z-index:120000!important}
+html.fp-web-mobile #fpHealthHud,html.fp-web-mobile #fpLifeHud,html.fp-web-mobile [id*='HealthHud'],html.fp-web-mobile [id*='healthHud'],html.fp-web-mobile [id*='LifeHud'],html.fp-web-mobile [id*='lifeHud']{position:fixed!important;left:max(5px,env(safe-area-inset-left))!important;top:max(4px,env(safe-area-inset-top))!important;width:clamp(88px,17vw,116px)!important;height:30px!important;max-height:30px!important;overflow:hidden!important;padding:2px 4px!important;font-size:7px!important;z-index:120100!important}
+html.fp-web-mobile [id*='heart'],html.fp-web-mobile [class*='heart']{font-size:14px!important;line-height:15px!important;white-space:nowrap!important;max-width:none!important;max-height:18px!important}
+html.fp-web-mobile #fpPauseV4{position:fixed!important;right:55px!important;top:max(4px,env(safe-area-inset-top))!important;width:40px!important;height:30px!important;z-index:220020!important}
+html.fp-web-mobile #fpFsGameV4{position:fixed!important;right:max(5px,env(safe-area-inset-right))!important;top:max(4px,env(safe-area-inset-top))!important;width:40px!important;height:30px!important;z-index:220020!important}
+html.fp-web-mobile #exposureHud{position:fixed!important;left:50%!important;top:max(37px,calc(env(safe-area-inset-top) + 33px))!important;transform:translateX(-50%)!important;width:clamp(142px,30vw,178px)!important;min-width:0!important;max-height:32px!important;overflow:hidden!important;padding:2px 4px!important;z-index:120050!important}
+html.fp-web-mobile #alignmentPanel{position:fixed!important;left:max(5px,env(safe-area-inset-left))!important;top:max(39px,calc(env(safe-area-inset-top) + 35px))!important;width:clamp(88px,17vw,108px)!important;max-height:calc(100dvh - 190px)!important;overflow:hidden!important;padding:3px!important;z-index:110000!important}
+html.fp-web-mobile #alignmentPanel .alignItem{padding:2px 3px!important;font-size:6px!important;line-height:1.1!important}
+html.fp-web-mobile #miniMapPanel{position:fixed!important;right:max(5px,env(safe-area-inset-right))!important;top:max(39px,calc(env(safe-area-inset-top) + 35px))!important;width:clamp(90px,17vw,108px)!important;max-height:78px!important;overflow:hidden!important;padding:3px!important;z-index:110000!important;opacity:.72!important}
+html.fp-web-mobile #miniMapCanvas{width:100%!important;height:auto!important;max-height:68px!important}
+html.fp-web-mobile #fpMoveV4,html.fp-web-mobile #fpLookV4{position:fixed!important;width:clamp(96px,17vw,124px)!important;height:clamp(96px,17vw,124px)!important;bottom:max(8px,env(safe-area-inset-bottom))!important;z-index:220000!important;pointer-events:auto!important}
+html.fp-web-mobile #fpMoveV4{left:max(8px,env(safe-area-inset-left))!important}
+html.fp-web-mobile #fpLookV4{right:clamp(78px,14vw,102px)!important}
+html.fp-web-mobile #fpPhotoV4{position:fixed!important;right:max(8px,env(safe-area-inset-right))!important;bottom:70px!important;width:clamp(54px,9vw,66px)!important;height:clamp(54px,9vw,66px)!important;z-index:220010!important}
+html.fp-web-mobile #fpLensMinusV4{position:fixed!important;right:54px!important;bottom:max(8px,env(safe-area-inset-bottom))!important;width:36px!important;height:36px!important;z-index:220010!important}
+html.fp-web-mobile #fpLensPlusV4{position:fixed!important;right:max(8px,env(safe-area-inset-right))!important;bottom:max(8px,env(safe-area-inset-bottom))!important;width:36px!important;height:36px!important;z-index:220010!important}
+html.fp-web-mobile #fpSensorV4{position:fixed!important;left:50%!important;transform:translateX(-50%)!important;bottom:max(8px,env(safe-area-inset-bottom))!important;min-width:0!important;width:clamp(118px,24vw,150px)!important;height:32px!important;z-index:220015!important}
+html.fp-web-mobile #fpCenterV4{position:fixed!important;left:50%!important;transform:translateX(-50%)!important;bottom:max(45px,calc(env(safe-area-inset-bottom) + 39px))!important;min-width:0!important;width:clamp(112px,22vw,142px)!important;height:28px!important;z-index:220015!important;display:grid!important}
+html.fp-web-mobile #fpFolderV6{position:fixed!important;right:max(5px,env(safe-area-inset-right))!important;top:max(75px,calc(env(safe-area-inset-top) + 72px))!important;width:70px!important;height:30px!important;z-index:220015!important}
+@media(max-height:430px){html.fp-web-mobile #alignmentPanel{max-height:112px!important}html.fp-web-mobile #miniMapPanel{max-height:66px!important}html.fp-web-mobile #fpMoveV4,html.fp-web-mobile #fpLookV4{width:96px!important;height:96px!important}html.fp-web-mobile #fpSensorV4{width:118px!important;height:28px!important}html.fp-web-mobile #fpCenterV4{width:112px!important;height:26px!important;bottom:41px!important}}
+@media(max-width:650px){html.fp-web-mobile #topbar{left:100px!important;right:100px!important}.fp-web-mobile .stats .chip{font-size:6px!important;padding:2px 3px!important}html.fp-web-mobile #fpLookV4{right:76px!important}}
+`;
+document.head.appendChild(style);
+function blockAutomaticFolder(){const start=document.getElementById('startBtn');if(start&&!start.__fpNoAutoFolder){start.__fpNoAutoFolder=true;start.addEventListener('click',()=>{window.__fpBlockFolderUntil=performance.now()+1600;},true);}document.addEventListener('click',e=>{const id=e.target&&e.target.id;if(id==='folderBtn'&&performance.now()<(window.__fpBlockFolderUntil||0)){e.preventDefault();e.stopImmediatePropagation();}},true);}
+function keepInside(){for(const id of ['fpMoveV4','fpLookV4','fpPhotoV4','fpPauseV4','fpFsGameV4','fpSensorV4','fpCenterV4','fpFolderV6','alignmentPanel','miniMapPanel','exposureHud']){const el=document.getElementById(id);if(!el)continue;const r=el.getBoundingClientRect();let dx=0,dy=0;if(r.left<4)dx=4-r.left;if(r.right>innerWidth-4)dx=(innerWidth-4)-r.right;if(r.top<4)dy=4-r.top;if(r.bottom>innerHeight-4)dy=(innerHeight-4)-r.bottom;if(dx||dy){const prev=el.style.transform||'';if(!prev.includes('translateX(-50%)'))el.style.transform=`translate(${dx}px,${dy}px)`;}}}
+function install(){blockAutomaticFolder();keepInside();}
+addEventListener('resize',()=>setTimeout(install,50));addEventListener('orientationchange',()=>setTimeout(install,220));document.addEventListener('fullscreenchange',()=>setTimeout(install,120));setInterval(install,700);if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install,{once:true});else install();
+})();
