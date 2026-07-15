@@ -52,7 +52,7 @@
       script.async = false;
       script.onload = () => {
         const mobileFix = document.createElement("script");
-        mobileFix.src = "core/mobile-web-fix.js?v=3";
+        mobileFix.src = "core/mobile-web-fix.js?v=4";
         mobileFix.async = false;
         mobileFix.onload = resolve;
         mobileFix.onerror = () => { console.warn("Falha ao carregar correção mobile"); resolve(); };
