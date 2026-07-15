@@ -60,7 +60,7 @@
     await loadScript("core/engine.js?v=53", "Não foi possível carregar core/engine.js");
     try { await loadScript("core/mobile-web-fix.js?v=4", "Falha ao carregar correção mobile"); }
     catch (error) { console.warn(error.message); }
-    try { await loadScript("core/mobile-controls-v5.js?v=1", "Falha ao carregar controles mobile V5"); }
+    try { await loadScript("core/mobile-controls-v5.js?v=2", "Falha ao carregar controles mobile finais"); }
     catch (error) { console.warn(error.message); }
   }
 
