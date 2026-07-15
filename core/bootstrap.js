@@ -21,9 +21,7 @@
     if (!phase || typeof phase !== "object") throw new Error(source + ": conteúdo inválido");
     for (const key of REQUIRED) if (!(key in phase)) throw new Error(source + ": faltando campo " + key);
     if (!Array.isArray(phase.order) || !phase.order.length) throw new Error(source + ": ordem de cômodos vazia");
-    if (!phase.detection || !Array.isArray(phase.detection.rules) || !phase.detection.rules.length) {
-      throw new Error(source + ": regras de detecção ausentes");
-    }
+    if (!phase.detection || !Array.isArray(phase.detection.rules) || !phase.detection.rules.length) throw new Error(source + ": regras de detecção ausentes");
     return phase;
   }
 
@@ -31,27 +29,19 @@
     const response = await fetch(url + "?v=" + Date.now(), { cache: "no-store" });
     if (response.status === 404 && options.allowMissing) return null;
     if (!response.ok) throw new Error(url + " retornou HTTP " + response.status);
-    try {
-      return await response.json();
-    } catch (error) {
-      throw new Error(url + " contém JSON inválido: " + error.message);
-    }
+    try { return await response.json(); }
+    catch (error) { throw new Error(url + " contém JSON inválido: " + error.message); }
   }
 
   async function loadFromJson() {
     const index = await readJson("phases/index.json");
     if (!index || !Array.isArray(index.phases)) throw new Error("phases/index.json precisa conter a lista phases");
-
     const results = await Promise.all(index.phases.map(async file => {
       const data = await readJson("phases/" + file, { allowMissing: true });
-      if (data === null) {
-        console.warn("Fase removida porque o arquivo não existe:", file);
-        return null;
-      }
+      if (data === null) { console.warn("Fase removida porque o arquivo não existe:", file); return null; }
       const phase = validate(data, file);
       return [phase.id, phase];
     }));
-
     return Object.fromEntries(results.filter(Boolean));
   }
 
@@ -62,13 +52,10 @@
       script.async = false;
       script.onload = () => {
         const mobileFix = document.createElement("script");
-        mobileFix.src = "core/mobile-web-fix.js?v=2";
+        mobileFix.src = "core/mobile-web-fix.js?v=3";
         mobileFix.async = false;
         mobileFix.onload = resolve;
-        mobileFix.onerror = () => {
-          console.warn("Falha ao carregar correção mobile");
-          resolve();
-        };
+        mobileFix.onerror = () => { console.warn("Falha ao carregar correção mobile"); resolve(); };
         document.body.appendChild(mobileFix);
       };
       script.onerror = () => reject(new Error("Não foi possível carregar core/engine.js"));
@@ -120,21 +107,13 @@
       const cfg = await loadTextConfig();
       applyTextConfig(cfg);
       window.FRAMEPRO_PHASES = await loadFromJson();
-      if (!Object.keys(window.FRAMEPRO_PHASES).length) {
-        throw new Error("phases/index.json não contém nenhuma fase");
-      }
+      if (!Object.keys(window.FRAMEPRO_PHASES).length) throw new Error("phases/index.json não contém nenhuma fase");
       await loadEngine();
       status.remove();
       console.info("FramePro iniciado exclusivamente pelos JSONs:", Object.keys(window.FRAMEPRO_PHASES));
     } catch (error) {
       console.error("Falha ao carregar as fases:", error);
-      status.innerHTML =
-        '<div><div style="font-size:24px;margin-bottom:10px">Erro nos arquivos de fase</div>' +
-        '<div style="font:500 14px system-ui;color:#ffb4b4;max-width:720px">' +
-        String(error && error.message ? error.message : error) +
-        '</div><div style="font:400 12px system-ui;color:#a9b8c8;margin-top:12px">' +
-        'JSON inválido ou configuração incorreta. Arquivos apagados são ignorados automaticamente. Nenhum fallback será usado.' +
-        '</div></div>';
+      status.innerHTML = '<div><div style="font-size:24px;margin-bottom:10px">Erro nos arquivos de fase</div><div style="font:500 14px system-ui;color:#ffb4b4;max-width:720px">' + String(error && error.message ? error.message : error) + '</div><div style="font:400 12px system-ui;color:#a9b8c8;margin-top:12px">JSON inválido ou configuração incorreta. Arquivos apagados são ignorados automaticamente. Nenhum fallback será usado.</div></div>';
     }
   }
 
