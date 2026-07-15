@@ -60,12 +60,21 @@
       const script = document.createElement("script");
       script.src = "core/engine.js?v=53";
       script.async = false;
-      script.onload = resolve;
+      script.onload = () => {
+        const mobileFix = document.createElement("script");
+        mobileFix.src = "core/mobile-web-fix.js?v=1";
+        mobileFix.async = false;
+        mobileFix.onload = resolve;
+        mobileFix.onerror = () => {
+          console.warn("Falha ao carregar correção mobile");
+          resolve();
+        };
+        document.body.appendChild(mobileFix);
+      };
       script.onerror = () => reject(new Error("Não foi possível carregar core/engine.js"));
       document.body.appendChild(script);
     });
   }
-
 
   async function loadTextConfig() {
     const defaults = {
@@ -79,7 +88,7 @@
       if (!response.ok) return defaults;
       const text = await response.text();
       text.split(/\r?\n/).forEach(line => {
-        line=line.replace(/[#;].*$/,"").trim(); if(!line)return;
+        line=line.replace(/[#;].*$/,"" ).trim(); if(!line)return;
         const p=line.indexOf("="); if(p<0)return;
         const key=line.slice(0,p).trim().toUpperCase();
         const value=line.slice(p+1).trim().toUpperCase();
