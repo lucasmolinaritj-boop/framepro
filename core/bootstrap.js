@@ -62,6 +62,8 @@
     catch (error) { console.warn(error.message); }
     try { await loadScript("core/mobile-controls-v5.js?v=3", "Falha ao carregar controles e sensores mobile"); }
     catch (error) { console.warn(error.message); }
+    try { await loadScript("core/mobile-sensors-v8.js?v=1", "Falha ao carregar calibração mobile V8"); }
+    catch (error) { console.warn(error.message); }
   }
 
   async function loadTextConfig() {
