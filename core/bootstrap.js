@@ -58,11 +58,13 @@
 
   async function loadEngine() {
     await loadScript("core/engine.js?v=53", "Não foi possível carregar core/engine.js");
+    try { await loadScript("core/scoring-tuning-v14.js?v=1", "Falha ao carregar ajuste de pontuação"); }
+    catch (error) { console.warn(error.message); }
     try { await loadScript("core/mobile-web-fix.js?v=4", "Falha ao carregar correção mobile"); }
     catch (error) { console.warn(error.message); }
-    try { await loadScript("core/mobile-controls-v5.js?v=3", "Falha ao carregar controles e sensores mobile"); }
+    try { await loadScript("core/mobile-controls-v5.js?v=13", "Falha ao carregar controles mobile V13"); }
     catch (error) { console.warn(error.message); }
-    try { await loadScript("core/mobile-sensors-v8.js?v=4", "Falha ao carregar calibração mobile V11"); }
+    try { await loadScript("core/mobile-sensors-v8.js?v=12", "Falha ao carregar sensores mobile V12"); }
     catch (error) { console.warn(error.message); }
   }
 
