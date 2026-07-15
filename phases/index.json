@@ -1,12 +1,10 @@
 {
-  "version": 3,
-  "note": "O servidor detecta automaticamente todos os JSON desta pasta. Esta lista também permite inspeção manual.",
+  "version": 4,
+  "note": "Lista de fases realmente presentes no GitHub Pages.",
   "phases": [
-    "apartamento.json",
-    "casa-terrea.json",
-    "mansao.json",
+    "apartamento_corrigido_aresta_sala.json",
     "studio.json",
     "fachada-predio-curitiba.json",
-    "sobrado-curitiba-2-andares.json"
+    "fachada-casa-alphaville-vizinhos-pontos-ajustados.json"
   ]
 }
