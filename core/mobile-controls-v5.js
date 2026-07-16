@@ -1,9 +1,9 @@
-/* FramePro Mobile Controls V19 — joystick esquerdo 12% mais lento e restauração após retorno */
+/* FramePro Mobile Controls V20 — V19 preservada, retomada destravada após minimizar */
 (function(){
 'use strict';
 const mobile=/Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent||'')||(window.matchMedia&&matchMedia('(pointer:coarse)').matches);if(!mobile)return;
 const cameraOffset=window.__fpMobileCameraOffset=window.__fpMobileCameraOffset||{x:0,y:0,roll:0};
-const runtime=window.__fpMobileControlsV19=window.__fpMobileControlsV19||{moveNode:null,lookNode:null,moveState:null,lookState:null,raf:0,resuming:false,pulse:0};
+const runtime=window.__fpMobileControlsV20=window.__fpMobileControlsV20||{moveNode:null,lookNode:null,moveState:null,lookState:null,raf:0,resuming:false,pulse:0,resumeToken:0};
 if(!document.getElementById('fp-mobile-v19-style')){const css=document.createElement('style');css.id='fp-mobile-v19-style';css.textContent=`
 #fpMobileControls,#fpWebMobileControls,#fpMobileV6{display:none!important;pointer-events:none!important}
 html.fp-menu-open #fpMobileV4{display:none!important}
@@ -42,8 +42,9 @@ function ensureLoop(){if(runtime.raf)cancelAnimationFrame(runtime.raf);runtime.r
 function addFolder(){const root=document.getElementById('fpMobileV4');if(!root||document.getElementById('fpFolderV6'))return;const b=document.createElement('button');b.id='fpFolderV6';b.className='fpBtnV4';b.textContent='📁 PASTA';b.onclick=async()=>{const existing=document.getElementById('folderBtn');if(existing){existing.click();return;}if(window.showDirectoryPicker){try{window.FRAMEPRO_PHOTO_DIRECTORY=await window.showDirectoryPicker({mode:'readwrite'});b.textContent='📁 OK';}catch(_){}}};root.appendChild(b);}
 function forceEnabled(){for(const id of ['fpMoveV4','fpLookV4','fpCenterV4','fpSensorV4']){const el=document.getElementById(id);if(el){el.style.setProperty('pointer-events','auto','important');el.style.setProperty('visibility','visible','important');}}const look=document.getElementById('fpLookV4');if(look)look.style.setProperty('opacity','1','important');}
 function install(force){let move=document.getElementById('fpMoveV4'),look=document.getElementById('fpLookV4');if(!move||!look)return false;if(force||runtime.moveNode!==move||!move.isConnected)wireMove(move);move=document.getElementById('fpMoveV4');if(force||runtime.lookNode!==look||!look.isConnected)wireLook(look);addFolder();forceEnabled();ensureLoop();startPulse();return true;}
-function resume(){if(runtime.resuming)return;runtime.resuming=true;resetAll();[80,260,700,1400].forEach((delay,index)=>setTimeout(()=>{install(index===0);forceEnabled();window.dispatchEvent(new CustomEvent('fp-mobile-resume',{detail:{pass:index+1}}));if(index===3)runtime.resuming=false;},delay));}
+function suspendAll(){runtime.resumeToken++;runtime.resuming=false;resetAll();if(runtime.raf){cancelAnimationFrame(runtime.raf);runtime.raf=0;}}
+function resume(){const token=++runtime.resumeToken;runtime.resuming=true;resetAll();[100,500].forEach((delay,index)=>setTimeout(()=>{if(token!==runtime.resumeToken||document.hidden)return;install(index===0);forceEnabled();window.dispatchEvent(new CustomEvent('fp-mobile-resume',{detail:{pass:index+1}}));if(index===1)runtime.resuming=false;},delay));}
 window.__fpMobileRawLook=rawLook;window.__fpMobileTrackedLook=applyLook;window.__fpReleaseMobileMovement=releaseMovement;window.__fpResetMobileControls=resetAll;window.__fpReinstallMobileControls=()=>install(true);window.__fpJoystickLookActive=false;window.__fpJoystickLookReleasedAt=0;
-window.addEventListener('pagehide',resetAll,true);window.addEventListener('blur',resetAll,true);document.addEventListener('visibilitychange',()=>{if(document.hidden)resetAll();else resume();},true);window.addEventListener('pageshow',resume,true);window.addEventListener('focus',()=>{if(!document.hidden)resume();},true);window.addEventListener('orientationchange',resume,true);screen.orientation&&screen.orientation.addEventListener&&screen.orientation.addEventListener('change',resume);
+window.addEventListener('pagehide',suspendAll,true);window.addEventListener('blur',suspendAll,true);document.addEventListener('visibilitychange',()=>{if(document.hidden)suspendAll();else resume();},true);window.addEventListener('pageshow',resume,true);window.addEventListener('focus',()=>{if(!document.hidden)resume();},true);window.addEventListener('orientationchange',resume,true);screen.orientation&&screen.orientation.addEventListener&&screen.orientation.addEventListener('change',resume);
 install(true);ensureLoop();startPulse();setInterval(()=>install(false),500);
 })();
