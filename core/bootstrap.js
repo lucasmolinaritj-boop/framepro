@@ -62,7 +62,7 @@
     let source = await response.text();
     const legacyLock = /\n\s*function lockLevel\(\)\{[\s\S]*?\n\s*lockLevel\(\);\s*\n/;
     if (!legacyLock.test(source)) throw new Error("Proteção: bloco legado lockLevel não foi encontrado no engine");
-    source = source.replace(legacyLock, "\n  /* lockLevel legado removido: o horizonte é controlado exclusivamente pelos sensores V62. */\n");
+    source = source.replace(legacyLock, "\n  /* lockLevel legado removido: o horizonte é controlado exclusivamente pelos sensores V63. */\n");
     const blobUrl = URL.createObjectURL(new Blob([source], { type: "text/javascript" }));
     try { await loadScript(blobUrl, "Não foi possível executar o engine corrigido"); }
     finally { URL.revokeObjectURL(blobUrl); }
@@ -77,7 +77,7 @@
     catch (error) { console.warn(error.message); }
     try { await loadScript("core/mobile-controls-v5.js?v=20", "Falha ao carregar controles mobile V20"); }
     catch (error) { console.warn(error.message); }
-    try { await loadScript("core/mobile-sensors-v8.js?v=62", "Falha ao carregar sensores mobile V62"); }
+    try { await loadScript("core/mobile-sensors-v8.js?v=63", "Falha ao carregar sensores mobile V63"); }
     catch (error) { console.warn(error.message); }
     try { await loadScript("core/mobile-ui-guard-v1.js?v=1", "Falha ao carregar proteção da HUD mobile"); }
     catch (error) { console.warn(error.message); }
