@@ -1,4 +1,4 @@
-/* FramePro Mobile Sensors V36 — V32 preservada, trava vertical mínima e retomada segura */
+/* FramePro Mobile Sensors V39 — V36 preservada, proteção local para pitch negativo */
 (function(){
 'use strict';
 const mobile=/Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent||'')||(window.matchMedia&&matchMedia('(pointer:coarse)').matches);if(!mobile)return;
@@ -13,24 +13,28 @@ function map(e){if(!Number.isFinite(e.alpha)&&!Number.isFinite(e.beta)&&!Number.
 function rawLook(dx,dy){if(typeof window.__fpMobileRawLook==='function'){window.__fpMobileRawLook(dx,dy);return;}if(typeof window.__fpApplyLook==='function'){window.__fpApplyLook(dx,dy);return;}const t=document.querySelector('#gameShell canvas')||document.querySelector('canvas')||document;const ev=new MouseEvent('mousemove',{bubbles:true,cancelable:true,view:window});try{Object.defineProperties(ev,{movementX:{value:dx},movementY:{value:dy}});}catch(_){}t.dispatchEvent(ev);}
 function trackedLook(dx,dy){if(!Number.isFinite(dx)||!Number.isFinite(dy))return;if(typeof window.__fpMobileTrackedLook==='function')window.__fpMobileTrackedLook(dx,dy);else{rawLook(dx,dy);cameraOffset.x+=dx;cameraOffset.y+=dy;}}
 function wheel(delta){(document.querySelector('#gameShell canvas')||document.body).dispatchEvent(new WheelEvent('wheel',{deltaY:delta,bubbles:true,cancelable:true}));}
-function toast(text){let t=document.getElementById('fpSensorToastV36');if(!t){t=document.createElement('div');t.id='fpSensorToastV36';Object.assign(t.style,{position:'fixed',left:'50%',top:'72px',transform:'translateX(-50%)',zIndex:'300000',padding:'8px 12px',borderRadius:'10px',background:'rgba(5,12,20,.94)',color:'#fff',font:'800 11px system-ui',pointerEvents:'none',opacity:'0',transition:'opacity .2s'});document.body.appendChild(t);}t.textContent=text;t.style.opacity='1';clearTimeout(t.__timer);t.__timer=setTimeout(()=>t.style.opacity='0',1600);}
+function toast(text){let t=document.getElementById('fpSensorToastV39');if(!t){t=document.createElement('div');t.id='fpSensorToastV39';Object.assign(t.style,{position:'fixed',left:'50%',top:'72px',transform:'translateX(-50%)',zIndex:'300000',padding:'8px 12px',borderRadius:'10px',background:'rgba(5,12,20,.94)',color:'#fff',font:'800 11px system-ui',pointerEvents:'none',opacity:'0',transition:'opacity .2s'});document.body.appendChild(t);}t.textContent=text;t.style.opacity='1';clearTimeout(t.__timer);t.__timer=setTimeout(()=>t.style.opacity='0',1600);}
 function resetAxisHistory(){state.lastRawYaw=null;state.lastRawPitch=null;state.decoupledYaw=0;state.verticalLock=0;}
 function calibrate(){state.base=state.current?{...state.current}:null;state.smoothYaw=state.smoothPitch=0;state.appliedYaw=state.appliedPitch=0;resetAxisHistory();}
 function joystickActive(){return window.__fpJoystickLookActive===true;}
 function onOrientation(e){
  if(state.disposed||!state.enabled||state.paused||state.centering||document.hidden||joystickActive())return;
  const cur=map(e);if(!cur)return;state.current=cur;state.samples++;if(!state.base){calibrate();return;}
- const rawYaw=norm(cur.yaw-state.base.yaw),rawPitch=clamp(cur.pitch-state.base.pitch,-36,36),relRoll=norm(cur.roll-state.base.roll);
+ const rawYaw=norm(cur.yaw-state.base.yaw),unclampedPitch=cur.pitch-state.base.pitch,rawPitch=clamp(unclampedPitch,-30,36),relRoll=norm(cur.roll-state.base.roll);
  if(state.lastRawYaw===null){state.lastRawYaw=rawYaw;state.lastRawPitch=rawPitch;state.decoupledYaw=rawYaw;}
  const dYaw=norm(rawYaw-state.lastRawYaw),dPitch=rawPitch-state.lastRawPitch;
  state.lastRawYaw=rawYaw;state.lastRawPitch=rawPitch;
  const verticalDominant=Math.abs(dPitch)>.18&&Math.abs(dPitch)>Math.abs(dYaw)*1.05;
- if(verticalDominant)state.verticalLock=4;else if(state.verticalLock>0)state.verticalLock--;
+ const descending=dPitch<-.06;
+ const lowerZone=rawPitch<-18;
+ if(verticalDominant||descending&&lowerZone)state.verticalLock=descending?6:4;else if(state.verticalLock>0)state.verticalLock--;
  const verticalLocked=state.verticalLock>0;
  if(!verticalLocked)state.decoupledYaw=clamp(state.decoupledYaw+dYaw,-62,62);
  const pitchEdge=Math.max(0,(Math.abs(rawPitch)-24)/12);
  const yawAtExtreme=state.decoupledYaw*(1-clamp(pitchEdge,0,.38));
- const targetYaw=verticalLocked?state.appliedYaw:clamp(-yawAtExtreme*2.28,-142,142),targetPitch=clamp(rawPitch*1.95,-78,78);
+ const targetYaw=verticalLocked?state.appliedYaw:clamp(-yawAtExtreme*2.28,-142,142);
+ const downPitch=rawPitch<0?Math.max(rawPitch,-30):rawPitch;
+ const targetPitch=clamp(downPitch*1.95,-58.5,78);
  state.smoothYaw=verticalLocked?state.appliedYaw:state.smoothYaw*.84+targetYaw*.16;state.smoothPitch=state.smoothPitch*.85+targetPitch*.15;
  let dx=verticalLocked?0:clamp(state.smoothYaw-state.appliedYaw,-2.15,2.15),dy=clamp(state.smoothPitch-state.appliedPitch,-1.75,1.75);
  if(Math.abs(dx)<.018)dx=0;if(Math.abs(dy)<.018)dy=0;if(dx||dy){trackedLook(dx,dy);state.appliedYaw+=dx;state.appliedPitch+=dy;}
