@@ -64,7 +64,7 @@
     catch (error) { console.warn(error.message); }
     try { await loadScript("core/mobile-controls-v5.js?v=20", "Falha ao carregar controles mobile V20"); }
     catch (error) { console.warn(error.message); }
-    try { await loadScript("core/mobile-sensors-v8.js?v=49", "Falha ao carregar sensores mobile V49"); }
+    try { await loadScript("core/mobile-sensors-v8.js?v=50", "Falha ao carregar sensores mobile V50"); }
     catch (error) { console.warn(error.message); }
     try { await loadScript("core/mobile-ui-guard-v1.js?v=1", "Falha ao carregar proteção da HUD mobile"); }
     catch (error) { console.warn(error.message); }
