@@ -1,51 +1,57 @@
-/* FramePro Mobile Sensors V17 — incremental, pitch seguro e centralização vertical */
+/* FramePro Mobile Sensors V18 — reinstalação persistente, estado preservado e horizonte nivelado */
 (function(){
 'use strict';
 const mobile=/Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent||'')||(window.matchMedia&&matchMedia('(pointer:coarse)').matches);if(!mobile)return;
 const html=document.documentElement;
 const cameraOffset=window.__fpMobileCameraOffset=window.__fpMobileCameraOffset||{x:0,y:0,roll:0};
-const style=document.createElement('style');style.id='fp-sensor-v17-style';style.textContent=`#fpCenterV4{display:grid!important}html.fp-sensor-on #fpLookV4,#fpLookV4{pointer-events:auto!important;opacity:1!important;visibility:visible!important;filter:none!important;z-index:220005!important}`;document.head.appendChild(style);
+const state=window.__fpSensorRuntimeV18=window.__fpSensorRuntimeV18||{enabled:false,last:null,current:null,samples:0,paused:false,rollBase:null,rollStep:0,centering:false,btn:null,center:null,orientationEvent:null};
+const style=document.createElement('style');style.id='fp-sensor-v18-style';style.textContent=`#fpCenterV4{display:grid!important}html.fp-sensor-on #fpLookV4,#fpLookV4{pointer-events:auto!important;opacity:1!important;visibility:visible!important;filter:none!important;z-index:220005!important}`;document.head.appendChild(style);
 function rawLook(dx,dy){if(typeof window.__fpMobileRawLook==='function'){window.__fpMobileRawLook(dx,dy);return;}if(typeof window.__fpApplyLook==='function'){window.__fpApplyLook(dx,dy);return;}const target=document.querySelector('#gameShell canvas')||document.querySelector('canvas')||document;const ev=new MouseEvent('mousemove',{bubbles:true,cancelable:true,view:window});try{Object.defineProperties(ev,{movementX:{value:dx},movementY:{value:dy}});}catch(_){}target.dispatchEvent(ev);document.dispatchEvent(ev);window.dispatchEvent(ev);}
 function trackedLook(dx,dy){if(!Number.isFinite(dx)||!Number.isFinite(dy))return;if(typeof window.__fpMobileTrackedLook==='function'){window.__fpMobileTrackedLook(dx,dy);return;}rawLook(dx,dy);cameraOffset.x+=dx;cameraOffset.y+=dy;}
 function wheel(delta){(document.querySelector('#gameShell canvas')||document.body).dispatchEvent(new WheelEvent('wheel',{deltaY:delta,bubbles:true,cancelable:true}));}
 function norm(v){while(v>180)v-=360;while(v<-180)v+=360;return v;}
-function toast(text){let t=document.getElementById('fpSensorToastV17');if(!t){t=document.createElement('div');t.id='fpSensorToastV17';Object.assign(t.style,{position:'fixed',left:'50%',top:'72px',transform:'translateX(-50%)',zIndex:'300000',padding:'8px 12px',borderRadius:'10px',background:'rgba(5,12,20,.92)',color:'#fff',font:'800 11px system-ui',pointerEvents:'none',opacity:'0',transition:'opacity .2s'});document.body.appendChild(t);}t.textContent=text;t.style.opacity='1';clearTimeout(t.__timer);t.__timer=setTimeout(()=>t.style.opacity='0',1300);}
-function install(){
- const oldBtn=document.getElementById('fpSensorV4'),oldCenter=document.getElementById('fpCenterV4');if(!oldBtn||!oldCenter||oldBtn.dataset.v17)return false;
- const btn=oldBtn.cloneNode(true);oldBtn.replaceWith(btn);btn.dataset.v17='1';
- const center=oldCenter.cloneNode(true);oldCenter.replaceWith(center);center.dataset.v17='1';center.textContent='⟳ CENTRALIZAR VISÃO';center.style.setProperty('display','grid','important');
- let enabled=false,last=null,current=null,samples=0,paused=false,rollBase=null,rollStep=0,centering=false;
- function map(e){const angle=(((screen.orientation&&screen.orientation.angle)||window.orientation||0)%360+360)%360;const a=e.alpha??0,b=e.beta??0,g=e.gamma??0;if(angle===90)return{yaw:a,pitch:g,roll:b};if(angle===270)return{yaw:a,pitch:-g,roll:-b};if(angle===180)return{yaw:a,pitch:-b,roll:-g};return{yaw:a,pitch:b,roll:g};}
- function recalibrate(){last=current?{...current}:null;rollBase=current?current.roll:null;rollStep=0;}
- function onOrientation(e){
-  if(!enabled)return;current=map(e);samples++;
-  if(paused||centering||document.hidden||window.__fpJoystickLookActive){last={...current};return;}
-  if(!last){recalibrate();return;}
-  let dyaw=norm(current.yaw-last.yaw),dpitch=current.pitch-last.pitch;last={...current};
-  if(Math.abs(dyaw)>8||Math.abs(dpitch)>8)return;
-  const absolutePitch=Math.abs(current.pitch);
-  if(absolutePitch>74)dyaw=0;else if(absolutePitch>62)dyaw*=Math.max(0,1-(absolutePitch-62)/12);
-  if(Math.abs(dyaw)>.07)trackedLook(-dyaw*2.05,0);
-  if(Math.abs(dpitch)>.07)trackedLook(0,dpitch*1.45);
-  if(rollBase===null)rollBase=current.roll;
-  const rel=current.roll-rollBase,wanted=Math.abs(rel)<1.6?0:Math.max(-5,Math.min(5,Math.round(rel/3.0)));
-  if(wanted!==rollStep){wheel(wanted>rollStep?10:-10);rollStep+=Math.sign(wanted-rollStep);}
- }
- async function permission(){if(typeof DeviceOrientationEvent!=='undefined'&&typeof DeviceOrientationEvent.requestPermission==='function'){const p=await DeviceOrientationEvent.requestPermission();if(p!=='granted')throw new Error('negado');}}
- function centerVertical(){
-  if(centering)return;centering=true;if(typeof window.__fpResetMobileControls==='function')window.__fpResetMobileControls();
-  const amount=Number(cameraOffset.y)||0,steps=10,delta=-amount/steps;let i=0;
-  function finish(){cameraOffset.y=0;recalibrate();centering=false;toast(Math.abs(amount)>.01?'Eixo vertical centralizado':'Eixo vertical já centralizado');}
-  if(Math.abs(amount)<=.01){finish();return;}
-  function tick(){rawLook(0,delta);i++;if(i<steps)requestAnimationFrame(tick);else finish();}requestAnimationFrame(tick);
- }
- btn.addEventListener('click',async e=>{e.preventDefault();e.stopPropagation();try{if(typeof DeviceOrientationEvent==='undefined')throw new Error('sem suporte');await permission();enabled=!enabled;samples=0;last=current=null;rollBase=null;rollStep=0;if(enabled){window.removeEventListener('deviceorientation',onOrientation,true);window.addEventListener('deviceorientation',onOrientation,true);html.classList.add('fp-sensor-on');btn.textContent='📱 SENSORES ON';setTimeout(()=>{if(enabled&&samples===0)btn.textContent='⚠️ SEM DADOS';},2200);}else{window.removeEventListener('deviceorientation',onOrientation,true);html.classList.remove('fp-sensor-on');btn.textContent='📱 ATIVAR SENSORES';}}catch(_){btn.textContent='⚠️ SENSOR INDISPONÍVEL';}},{passive:false});
- center.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();centerVertical();},{passive:false});
- function suspend(){paused=true;last=null;if(typeof window.__fpResetMobileControls==='function')window.__fpResetMobileControls();}
- function resume(){paused=false;last=current=null;rollBase=null;rollStep=0;setTimeout(()=>{last=current?{...current}:null;},220);}
- ['pagehide','blur'].forEach(ev=>window.addEventListener(ev,suspend,true));document.addEventListener('visibilitychange',()=>document.hidden?suspend():resume(),true);window.addEventListener('pageshow',resume,true);window.addEventListener('fp-mobile-resume',resume,true);
- window.__fpRecenterMobile=centerVertical;window.__fpRecalibrateSensorsOnly=recalibrate;window.__fpSensorState={get enabled(){return enabled;},toast,recalibrateOnly:recalibrate,setCentering(v){paused=!!v;if(!paused)recalibrate();}};
- return true;
+function toast(text){let t=document.getElementById('fpSensorToastV18');if(!t){t=document.createElement('div');t.id='fpSensorToastV18';Object.assign(t.style,{position:'fixed',left:'50%',top:'72px',transform:'translateX(-50%)',zIndex:'300000',padding:'8px 12px',borderRadius:'10px',background:'rgba(5,12,20,.92)',color:'#fff',font:'800 11px system-ui',pointerEvents:'none',opacity:'0',transition:'opacity .2s'});document.body.appendChild(t);}t.textContent=text;t.style.opacity='1';clearTimeout(t.__timer);t.__timer=setTimeout(()=>t.style.opacity='0',1400);}
+function map(e){const angle=(((screen.orientation&&screen.orientation.angle)||window.orientation||0)%360+360)%360;const a=e.alpha??0,b=e.beta??0,g=e.gamma??0;if(angle===90)return{yaw:a,pitch:g,roll:b};if(angle===270)return{yaw:a,pitch:-g,roll:-b};if(angle===180)return{yaw:a,pitch:-b,roll:-g};return{yaw:a,pitch:b,roll:g};}
+function recalibrate(){state.last=state.current?{...state.current}:null;state.rollBase=state.current?state.current.roll:null;state.rollStep=0;cameraOffset.roll=0;}
+function onOrientation(e){
+ if(!state.enabled)return;state.current=map(e);state.samples++;
+ if(state.paused||state.centering||document.hidden||window.__fpJoystickLookActive){state.last={...state.current};return;}
+ if(!state.last){recalibrate();return;}
+ let dyaw=norm(state.current.yaw-state.last.yaw),dpitch=state.current.pitch-state.last.pitch;state.last={...state.current};
+ if(Math.abs(dyaw)>8||Math.abs(dpitch)>8)return;
+ const absolutePitch=Math.abs(state.current.pitch);
+ if(absolutePitch>74)dyaw=0;else if(absolutePitch>62)dyaw*=Math.max(0,1-(absolutePitch-62)/12);
+ if(Math.abs(dyaw)>.07)trackedLook(-dyaw*2.05,0);
+ if(Math.abs(dpitch)>.07)trackedLook(0,dpitch*1.45);
+ if(state.rollBase===null)state.rollBase=state.current.roll;
+ const rel=state.current.roll-state.rollBase,wanted=Math.abs(rel)<1.6?0:Math.max(-5,Math.min(5,Math.round(rel/3.0)));
+ if(wanted!==state.rollStep){const direction=Math.sign(wanted-state.rollStep);wheel(direction>0?10:-10);state.rollStep+=direction;cameraOffset.roll=state.rollStep;}
 }
-let tries=0;const timer=setInterval(()=>{tries++;if(install()||tries>100)clearInterval(timer);},100);if(document.readyState!=='loading')install();else document.addEventListener('DOMContentLoaded',install,{once:true});
+async function permission(){if(typeof DeviceOrientationEvent!=='undefined'&&typeof DeviceOrientationEvent.requestPermission==='function'){const p=await DeviceOrientationEvent.requestPermission();if(p!=='granted')throw new Error('negado');}}
+function bindOrientation(){const eventName=('ondeviceorientationabsolute' in window)?'deviceorientationabsolute':'deviceorientation';if(state.orientationEvent&&state.orientationEvent!==eventName)window.removeEventListener(state.orientationEvent,onOrientation,true);window.removeEventListener(eventName,onOrientation,true);if(state.enabled)window.addEventListener(eventName,onOrientation,true);state.orientationEvent=eventName;}
+function refreshButton(){if(!state.btn)return;state.btn.textContent=state.enabled?'📱 SENSORES ON':'📱 ATIVAR SENSORES';html.classList.toggle('fp-sensor-on',state.enabled);}
+function centerLevel(){
+ if(state.centering)return;state.centering=true;if(typeof window.__fpResetMobileControls==='function')window.__fpResetMobileControls();
+ const pitchAmount=Number(cameraOffset.y)||0,rollAmount=Number(state.rollStep)||0,pitchSteps=Math.abs(pitchAmount)>.01?10:0,rollSteps=Math.abs(rollAmount),total=Math.max(pitchSteps,rollSteps,1);let i=0;
+ function finish(){cameraOffset.y=0;cameraOffset.roll=0;state.rollStep=0;state.rollBase=state.current?state.current.roll:null;state.last=state.current?{...state.current}:null;state.centering=false;toast((Math.abs(pitchAmount)>.01||rollSteps)?'Visão e nível horizontal centralizados':'Visão já centralizada e nivelada');}
+ function tick(){if(pitchSteps&&i<pitchSteps)rawLook(0,-pitchAmount/pitchSteps);if(i<rollSteps)wheel(rollAmount>0?-10:10);i++;if(i<total)requestAnimationFrame(tick);else finish();}requestAnimationFrame(tick);
+}
+function install(){
+ const oldBtn=document.getElementById('fpSensorV4'),oldCenter=document.getElementById('fpCenterV4');if(!oldBtn||!oldCenter)return false;
+ if(state.btn!==oldBtn||oldBtn.dataset.sensorV18!=='1'){
+  const btn=oldBtn.cloneNode(true);oldBtn.replaceWith(btn);btn.dataset.sensorV18='1';state.btn=btn;
+  btn.addEventListener('click',async e=>{e.preventDefault();e.stopPropagation();try{if(typeof DeviceOrientationEvent==='undefined')throw new Error('sem suporte');await permission();state.enabled=!state.enabled;state.samples=0;state.last=state.current=null;state.rollBase=null;state.rollStep=0;cameraOffset.roll=0;bindOrientation();refreshButton();if(state.enabled)setTimeout(()=>{if(state.enabled&&state.samples===0&&state.btn)state.btn.textContent='⚠️ SEM DADOS — TOQUE NOVAMENTE';},2400);}catch(_){state.enabled=false;bindOrientation();refreshButton();if(state.btn)state.btn.textContent='⚠️ SENSOR INDISPONÍVEL';}},{passive:false});
+ }
+ const currentCenter=document.getElementById('fpCenterV4');
+ if(state.center!==currentCenter||currentCenter.dataset.sensorV18!=='1'){
+  const center=currentCenter.cloneNode(true);currentCenter.replaceWith(center);center.dataset.sensorV18='1';center.textContent='⟳ CENTRALIZAR VISÃO';center.style.setProperty('display','grid','important');state.center=center;
+  center.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();centerLevel();},{passive:false});
+ }
+ refreshButton();bindOrientation();return true;
+}
+function suspend(){state.paused=true;state.last=null;if(typeof window.__fpResetMobileControls==='function')window.__fpResetMobileControls();}
+function resume(){state.paused=false;state.last=state.current=null;state.rollBase=null;state.rollStep=0;cameraOffset.roll=0;setTimeout(()=>{install();state.last=state.current?{...state.current}:null;bindOrientation();},180);}
+['pagehide','blur'].forEach(ev=>window.addEventListener(ev,suspend,true));document.addEventListener('visibilitychange',()=>document.hidden?suspend():resume(),true);window.addEventListener('pageshow',resume,true);window.addEventListener('fp-mobile-resume',resume,true);
+window.__fpRecenterMobile=centerLevel;window.__fpRecalibrateSensorsOnly=recalibrate;window.__fpSensorState={get enabled(){return state.enabled;},toast,recalibrateOnly:recalibrate,setCentering(v){state.paused=!!v;if(!state.paused)recalibrate();}};
+install();setInterval(install,500);
 })();
