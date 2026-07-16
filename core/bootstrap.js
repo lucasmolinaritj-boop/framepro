@@ -81,6 +81,8 @@
 
   async function loadEngine() {
     await loadPatchedEngine();
+    try { await loadScript("core/keyboard-aliases-v1.js?v=1", "Falha ao carregar suporte às setas do teclado"); }
+    catch (error) { console.warn(error.message); }
     try { await loadScript("core/scoring-tuning-v14.js?v=18", "Falha ao carregar ajuste de pontuação V18"); }
     catch (error) { console.warn(error.message); }
     try { await loadScript("core/mobile-web-fix.js?v=6", "Falha ao carregar estrutura mobile V6"); }
