@@ -56,8 +56,21 @@
     });
   }
 
+  async function loadPatchedEngine() {
+    const response = await fetch("core/engine.js?v=54", { cache: "no-store" });
+    if (!response.ok) throw new Error("Não foi possível carregar core/engine.js (HTTP " + response.status + ")");
+    let source = await response.text();
+    const legacyLock = /\n\s*function lockLevel\(\)\{[\s\S]*?\n\s*lockLevel\(\);\s*\n/;
+    if (!legacyLock.test(source)) throw new Error("Proteção: bloco legado lockLevel não foi encontrado no engine");
+    source = source.replace(legacyLock, "\n  /* lockLevel legado removido: o horizonte é controlado exclusivamente pelos sensores V53. */\n");
+    const blobUrl = URL.createObjectURL(new Blob([source], { type: "text/javascript" }));
+    try { await loadScript(blobUrl, "Não foi possível executar o engine corrigido"); }
+    finally { URL.revokeObjectURL(blobUrl); }
+    window.__fpLegacyLevelLockRemoved = true;
+  }
+
   async function loadEngine() {
-    await loadScript("core/engine.js?v=53", "Não foi possível carregar core/engine.js");
+    await loadPatchedEngine();
     try { await loadScript("core/scoring-tuning-v14.js?v=18", "Falha ao carregar ajuste de pontuação V18"); }
     catch (error) { console.warn(error.message); }
     try { await loadScript("core/mobile-web-fix.js?v=6", "Falha ao carregar estrutura mobile V6"); }
