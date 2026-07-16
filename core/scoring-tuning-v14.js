@@ -1,8 +1,8 @@
-/* FramePro scoring tuning V16 — centrais internas mais naturais sem alterar fachadas */
+/* FramePro scoring tuning V17 — direção interna mais tolerante e ponto central mais preciso */
 (function(){
 'use strict';
-const CENTER_DIRECTION_PERFECT_DEG=0.13; // 25% acima dos 0.104 anteriores
-const CENTER_POINT_RADIUS_MULTIPLIER=1.25;
+const CENTER_DIRECTION_PERFECT_DEG=0.13;
+const CENTER_POINT_RADIUS_MULTIPLIER=0.75; // área central interna 25% menor que a original
 window.FRAMEPRO_SCORING_TUNING=Object.assign({},window.FRAMEPRO_SCORING_TUNING,{
  centerDirectionPerfectDeg:CENTER_DIRECTION_PERFECT_DEG,
  centerDirectionPassScore:99,
@@ -30,27 +30,31 @@ function isCenter(result,args){
  return values.some(v=>text(v)==='center'||text(v)==='central');
 }
 function patchDirection(){
- if(typeof window.fpDirectionContext==='function'&&!window.fpDirectionContext.__v16){
+ if(typeof window.fpDirectionContext==='function'&&!window.fpDirectionContext.__v17){
   const original=window.fpDirectionContext;
   const wrapped=function(){const result=original.apply(this,arguments);try{const deg=Number(result&&result.deg);if(!isFacadeContext(arguments,result)&&isCenter(result,arguments)&&Number.isFinite(deg)&&deg<=CENTER_DIRECTION_PERFECT_DEG){result.score=100;result.aimDirection=100;}}catch(_){}return result;};
-  wrapped.__v16=true;window.fpDirectionContext=wrapped;
+  wrapped.__v17=true;window.fpDirectionContext=wrapped;
  }
 }
-function relaxPointResult(result,args){
+function tightenPointResult(result,args){
  if(!result||isFacadeContext(args,result)||!isCenter(result,args))return result;
  const distance=Number(result.distance??result.dist??result.pointDistance);
  const radius=Number(result.radius??result.pointRadius??result.allowedRadius);
  if(Number.isFinite(distance)&&Number.isFinite(radius)&&radius>0){
-  const ratio=distance/(radius*CENTER_POINT_RADIUS_MULTIPLIER);
+  const effectiveRadius=radius*CENTER_POINT_RADIUS_MULTIPLIER;
+  const ratio=distance/effectiveRadius;
   const score=Math.max(0,Math.min(100,Math.round((1-ratio)*100)));
-  for(const key of ['score','pointScore','takingPoint','positionScore','capturePoint'])if(key in result)result[key]=Math.max(Number(result[key])||0,score);
-  result.effectiveRadius=radius*CENTER_POINT_RADIUS_MULTIPLIER;
+  for(const key of ['score','pointScore','takingPoint','positionScore','capturePoint']){
+   if(key in result){const current=Number(result[key]);result[key]=Number.isFinite(current)?Math.min(current,score):score;}
+  }
+  result.effectiveRadius=effectiveRadius;
+  result.centerPointTightened=true;
  }
  return result;
 }
 function patchPointFunction(name){
- const fn=window[name];if(typeof fn!=='function'||fn.__fpCenterPointV16)return;
- const wrapped=function(){return relaxPointResult(fn.apply(this,arguments),arguments);};wrapped.__fpCenterPointV16=true;window[name]=wrapped;
+ const fn=window[name];if(typeof fn!=='function'||fn.__fpCenterPointV17)return;
+ const wrapped=function(){return tightenPointResult(fn.apply(this,arguments),arguments);};wrapped.__fpCenterPointV17=true;window[name]=wrapped;
 }
 function patch(){patchDirection();['fpTakingPointContext','fpPointContext','fpCapturePointContext','fpPositionContext'].forEach(patchPointFunction);}
 patch();setInterval(patch,500);
