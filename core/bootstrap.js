@@ -91,7 +91,7 @@
     catch (error) { console.warn(error.message); }
     try { await loadScript("core/mobile-sensors-v8.js?v=67", "Falha ao carregar sensores mobile V67"); }
     catch (error) { console.warn(error.message); }
-    try { await loadScript("core/mobile-ui-guard-v1.js?v=6", "Falha ao carregar HUD mobile V6"); }
+    try { await loadScript("core/mobile-ui-guard-v1.js?v=7", "Falha ao carregar HUD mobile V7"); }
     catch (error) { console.warn(error.message); }
   }
 
