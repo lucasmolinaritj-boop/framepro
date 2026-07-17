@@ -1,9 +1,9 @@
-/* FramePro Mobile Controls V20 — V19 preservada, retomada destravada após minimizar */
+/* FramePro Mobile Controls V21 — remove botão de lente/câmera inferior direito */
 (function(){
 'use strict';
 const mobile=/Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent||'')||(window.matchMedia&&matchMedia('(pointer:coarse)').matches);if(!mobile)return;
 const cameraOffset=window.__fpMobileCameraOffset=window.__fpMobileCameraOffset||{x:0,y:0,roll:0};
-const runtime=window.__fpMobileControlsV20=window.__fpMobileControlsV20||{moveNode:null,lookNode:null,moveState:null,lookState:null,raf:0,resuming:false,pulse:0,resumeToken:0};
+const runtime=window.__fpMobileControlsV21=window.__fpMobileControlsV21||{moveNode:null,lookNode:null,moveState:null,lookState:null,raf:0,resuming:false,pulse:0,resumeToken:0};
 if(!document.getElementById('fp-mobile-v19-style')){const css=document.createElement('style');css.id='fp-mobile-v19-style';css.textContent=`
 #fpMobileControls,#fpWebMobileControls,#fpMobileV6{display:none!important;pointer-events:none!important}
 html.fp-menu-open #fpMobileV4{display:none!important}
@@ -17,7 +17,7 @@ html.fp-web-mobile #miniMapPanel{top:42px!important;right:6px!important;width:mi
 #fpMoveV4,#fpLookV4{width:min(126px,28dvh)!important;height:min(126px,28dvh)!important;touch-action:none!important;pointer-events:auto!important}
 #fpMoveV4{left:max(16px,env(safe-area-inset-left))!important;bottom:max(16px,env(safe-area-inset-bottom))!important}
 #fpLookV4,html.fp-sensor-on #fpLookV4{right:max(102px,calc(env(safe-area-inset-right) + 94px))!important;bottom:max(16px,env(safe-area-inset-bottom))!important;opacity:1!important;pointer-events:auto!important;filter:none!important;visibility:visible!important;z-index:220005!important}
-#fpPhotoV4{right:max(16px,env(safe-area-inset-right))!important;bottom:min(82px,20dvh)!important}
+#fpPhotoV4{display:none!important;visibility:hidden!important;pointer-events:none!important}
 #fpFolderV6{right:max(14px,env(safe-area-inset-right))!important;top:50px!important;width:72px!important;height:32px!important}
 #fpSensorV4{left:50%!important;bottom:max(12px,env(safe-area-inset-bottom))!important;min-width:132px!important;max-width:36dvw!important}
 #fpCenterV4{left:50%!important;bottom:max(52px,calc(env(safe-area-inset-bottom) + 40px))!important;min-width:112px!important;max-width:32dvw!important;display:grid!important}`;document.head.appendChild(css);}
@@ -40,8 +40,9 @@ function wireLook(source){const joy=cloneFresh(source),s=runtime.lookState={id:n
 function lookLoop(){const s=runtime.lookState;if(s&&s.id!==null&&!document.hidden&&runtime.lookNode&&runtime.lookNode.isConnected)applyLook(s.nx*1.9,s.ny*1.7);runtime.raf=requestAnimationFrame(lookLoop);}
 function ensureLoop(){if(runtime.raf)cancelAnimationFrame(runtime.raf);runtime.raf=requestAnimationFrame(lookLoop);}
 function addFolder(){const root=document.getElementById('fpMobileV4');if(!root||document.getElementById('fpFolderV6'))return;const b=document.createElement('button');b.id='fpFolderV6';b.className='fpBtnV4';b.textContent='📁 PASTA';b.onclick=async()=>{const existing=document.getElementById('folderBtn');if(existing){existing.click();return;}if(window.showDirectoryPicker){try{window.FRAMEPRO_PHOTO_DIRECTORY=await window.showDirectoryPicker({mode:'readwrite'});b.textContent='📁 OK';}catch(_){}}};root.appendChild(b);}
-function forceEnabled(){for(const id of ['fpMoveV4','fpLookV4','fpCenterV4','fpSensorV4']){const el=document.getElementById(id);if(el){el.style.setProperty('pointer-events','auto','important');el.style.setProperty('visibility','visible','important');}}const look=document.getElementById('fpLookV4');if(look)look.style.setProperty('opacity','1','important');}
-function install(force){let move=document.getElementById('fpMoveV4'),look=document.getElementById('fpLookV4');if(!move||!look)return false;if(force||runtime.moveNode!==move||!move.isConnected)wireMove(move);move=document.getElementById('fpMoveV4');if(force||runtime.lookNode!==look||!look.isConnected)wireLook(look);addFolder();forceEnabled();ensureLoop();startPulse();return true;}
+function removeEye(){const eye=document.getElementById('fpPhotoV4');if(eye)eye.remove();}
+function forceEnabled(){for(const id of ['fpMoveV4','fpLookV4','fpCenterV4','fpSensorV4']){const el=document.getElementById(id);if(el){el.style.setProperty('pointer-events','auto','important');el.style.setProperty('visibility','visible','important');}}const look=document.getElementById('fpLookV4');if(look)look.style.setProperty('opacity','1','important');removeEye();}
+function install(force){let move=document.getElementById('fpMoveV4'),look=document.getElementById('fpLookV4');if(!move||!look)return false;if(force||runtime.moveNode!==move||!move.isConnected)wireMove(move);move=document.getElementById('fpMoveV4');if(force||runtime.lookNode!==look||!look.isConnected)wireLook(look);addFolder();removeEye();forceEnabled();ensureLoop();startPulse();return true;}
 function suspendAll(){runtime.resumeToken++;runtime.resuming=false;resetAll();if(runtime.raf){cancelAnimationFrame(runtime.raf);runtime.raf=0;}}
 function resume(){const token=++runtime.resumeToken;runtime.resuming=true;resetAll();[100,500].forEach((delay,index)=>setTimeout(()=>{if(token!==runtime.resumeToken||document.hidden)return;install(index===0);forceEnabled();window.dispatchEvent(new CustomEvent('fp-mobile-resume',{detail:{pass:index+1}}));if(index===1)runtime.resuming=false;},delay));}
 window.__fpMobileRawLook=rawLook;window.__fpMobileTrackedLook=applyLook;window.__fpReleaseMobileMovement=releaseMovement;window.__fpResetMobileControls=resetAll;window.__fpReinstallMobileControls=()=>install(true);window.__fpJoystickLookActive=false;window.__fpJoystickLookReleasedAt=0;
